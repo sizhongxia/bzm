@@ -1,4 +1,4 @@
-var baseUrl = 'http://127.0.0.1:9091';
+var baseUrl = 'https://api.bzm365.com';
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
     const token = wx.getStorageSync('token');
@@ -16,17 +16,19 @@ function request(url, data = {}, method = "POST") {
           wx.redirectTo({
             url: '/pages/auth/login/login'
           });
-          return false;
-        }
-        if (res.statusCode === 200) {
-          if (res.data.code === 200) {
-            resolve(res.data.data);
-          } else {
-            reject(res.data);
-          }
         } else {
-          showErrorToast(res.errMsg)
-          reject(null);
+          if (res.statusCode === 200) {
+            if (res.data.code === 200) {
+              resolve(res.data.data);
+            } else {
+              reject(res.data);
+            }
+          } else {
+            reject({
+              code: 999,
+              message: '请求失败'
+            });
+          }
         }
       },
       fail: function (err) {

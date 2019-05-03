@@ -6,11 +6,11 @@ Page({
   data: {
   },
   onShow: function () {
-    paySer.orderquery('TEST1122420413142536192497169').then(res => {
-      console.info(res)
-    }).catch(err => {
-      console.error(err)
-    })
+    // paySer.orderquery('TEST1122420413142536192497169').then(res => {
+    //   console.info(res)
+    // }).catch(err => {
+    //   console.error(err)
+    // })
   },
   pay: function(e) {
     paySer.unifiedorder('', '').then(res => {
