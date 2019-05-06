@@ -1,0 +1,40 @@
+
+<view class='list-box'>
+  <view class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>抗磨剂</view>
+     <view class='address'>简介汽车发动机修复剂</view>
+    <view class='price'>12km</view>
+    <navigator url='../tool_pay/tool_pay' class='buy'>立即购买</navigator>
+  </view>
+  <view class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>抗磨剂</view>
+     <view class='address'>简介汽车发动机修复剂</view>
+    <view class='price'>12km</view>
+    <navigator url='../tool_pay/tool_pay' class='buy'>立即购买</navigator>
+  </view>
+  <view class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>抗磨剂</view>
+     <view class='address'>简介汽车发动机修复剂</view>
+    <view class='price'>12km</view>
+    <navigator url='../tool_pay/tool_pay' class='buy'>立即购买</navigator>
+  </view>
+  <view class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>抗磨剂</view>
+     <view class='address'>简介汽车发动机修复剂</view>
+    <view class='price'>12km</view>
+    <navigator url='../tool_pay/tool_pay' class='buy'>立即购买</navigator>
+  </view>
+  <view class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>抗磨剂</view>
+     <view class='address'>简介汽车发动机修复剂</view>
+    <view class='price'>12km</view>
+    <navigator url='../tool_pay/tool_pay' class='buy'>立即购买</navigator>
+  </view>
+
+</view>
+

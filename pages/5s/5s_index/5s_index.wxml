@@ -1,0 +1,64 @@
+<swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  class='index_banner' style="height: 297rpx;"
+>
+  <block wx:for="{{imgUrls}}">
+    <swiper-item >
+      <image src="{{item}}" mode="widthFix" class="slide-image" style='width:100%' />
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='search-box'>
+  <input class='text' placeholder='输入5S店名称查询'></input>
+  <navigator class='map'></navigator>
+</view>
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+
+<view class='list-box'>
+  <navigator url='../5s_detail/5s_detail' class='item-box'>
+    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>实训地址名称</view>
+     <view class='address'>详细地址</view>
+    <view class='juli'>12km</view>
+    <view class='phone'>电话</view>
+    <view class='map'>导航</view>
+  </navigator>
+ <navigator url='../5s_detail/5s_detail' class='item-box'>
+    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>实训地址名称</view>
+     <view class='address'>详细地址</view>
+    <view class='juli'>12km</view>
+    <view class='phone'>电话</view>
+    <view class='map'>导航</view>
+  </navigator>
+<navigator url='../5s_detail/5s_detail' class='item-box'>
+    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>实训地址名称</view>
+     <view class='address'>详细地址</view>
+    <view class='juli'>12km</view>
+    <view class='phone'>电话</view>
+    <view class='map'>导航</view>
+  </navigator>
+<navigator url='../5s_detail/5s_detail' class='item-box'>
+    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>实训地址名称</view>
+     <view class='address'>详细地址</view>
+    <view class='juli'>12km</view>
+    <view class='phone'>电话</view>
+    <view class='map'>导航</view>
+  </navigator>
+<navigator url='../5s_detail/5s_detail' class='item-box'>
+    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
+    <view class='name'>实训地址名称</view>
+     <view class='address'>详细地址</view>
+    <view class='juli'>12km</view>
+    <view class='phone'>电话</view>
+    <view class='map'>导航</view>
+  </navigator>
+</view>
+

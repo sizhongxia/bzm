@@ -1,0 +1,61 @@
+<view class='tab'>
+  <view class="{{index==1? 'active':''}}" data-index="1" bindtap='siwchTab'>产品订单</view>
+  <view class="{{index==2? 'active':''}}" data-index="2" bindtap='siwchTab'>课程订单</view>
+</view>
+<view style='height:15rpx;'></view>
+
+<view class='list-box' wx:if="{{index == 1}}">
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>产品名称；机具产品</view>
+      <view>订单金额：12元（单价12元*1）</view>
+      <view>收件人   ：张三 （13424242424）</view>
+      <view>收件地址：北京市产品哪个区</view>
+      <view>下单时间：2019-12-12 12:12</view>
+    </view>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>产品名称；机具产品</view>
+      <view>订单金额：12元（单价12元*1）</view>
+      <view>收件人   ：张三 （13424242424）</view>
+      <view>收件地址：北京市产品哪个区</view>
+      <view>下单时间：2019-12-12 12:12</view>
+    </view>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>产品名称；机具产品</view>
+      <view>订单金额：12元（单价12元*1）</view>
+      <view>收件人   ：张三 （13424242424）</view>
+      <view>收件地址：北京市产品哪个区</view>
+      <view>下单时间：2019-12-12 12:12</view>
+    </view>
+</view>
+
+
+<view class='list-box' wx:else>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>课程名称：培训课程</view>
+      <view>订单金额：12元</view>
+      <view>下单时间：2019-12-12 12:1</view>
+    </view>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>课程名称：培训课程</view>
+      <view>订单金额：12元</view>
+      <view>下单时间：2019-12-12 12:1</view>
+    </view>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>课程名称：培训课程</view>
+      <view>订单金额：12元</view>
+      <view>下单时间：2019-12-12 12:1</view>
+    </view>
+    <view class='list-item'>
+      <view>订单编号：20179827282543</view>
+      <view>课程名称：培训课程</view>
+      <view>订单金额：12元</view>
+      <view>下单时间：2019-12-12 12:1</view>
+    </view>
+
+</view>

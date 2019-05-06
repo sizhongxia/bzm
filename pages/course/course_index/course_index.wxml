@@ -1,0 +1,63 @@
+<swiper
+  indicator-dots="{{indicatorDots}}"
+  autoplay="{{autoplay}}"
+  interval="{{interval}}"
+  duration="{{duration}}"
+  class='index_banner' style='height:297rpx;'
+>
+  <block wx:for="{{imgUrls}}" wx:key="resId">
+    <swiper-item >
+      <image src="{{item.picUrl}}" mode="widthFix" class="slide-image" style='width:100%'/>
+    </swiper-item>
+  </block>
+</swiper>
+
+<view class='nav-box'>
+  <view class='nav-1'>名师亲授</view>
+  <view class='nav-2'>实战落地</view>
+  <view class='nav-3'>教练跟踪</view>
+  <view class='nav-4'>评估晋升</view>
+</view>
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+
+<view class='title-box'>
+  <view class='name'>一级分类</view>
+  <view class='desc'>分类描述劳动关系协调师二级鉴定分类描述劳动关系协调师二级鉴定</view>
+  <view class='state'>正在学习</view>
+  <view class='course-count'>4门课程</view>
+</view>
+
+<view class='course-box'>
+   <navigator url='../course_detail/course_detail'>
+      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-5.png'></image>
+      <view class='title'>摄影的基础与技巧</view>
+   </navigator>
+    <navigator url='../course_detail/course_detail'>
+      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-6.png'></image>
+      <view class='title'>摄影的基础与技巧</view>
+   </navigator>
+   
+<view style="clear:both;height:0"></view>
+</view>
+
+<view class='title-box'>
+  <view class='name'>一级分类</view>
+  <view class='desc'>分类描述劳动关系协调师二级鉴定</view>
+  <view class='state' style='color:#e95410;'>￥12元</view>
+  <view class='course-count'>4门课程</view>
+</view>
+
+<view class='course-box'>
+   <navigator url='../course_detail/course_detail'>
+      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-7.png'></image>
+      <view class='title'>摄影的基础与技巧</view>
+   </navigator>
+    <navigator url='../course_detail/course_detail'>
+      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-8.png'></image>
+      <view class='title'>摄影的基础与技巧</view>
+   </navigator>
+   
+<view style="clear:both;height:0"></view>
+</view>
+

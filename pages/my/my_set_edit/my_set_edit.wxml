@@ -1,0 +1,12 @@
+
+<view class='form-box'>
+  <view class='item-box'>
+    <label>姓名：</label>
+    <input type='text' class='text'></input>
+  </view>
+   <view class='item-box'>
+    <label>手机号：</label>
+     <input type='text' class='text'></input>
+  </view>
+</view>
+<button class='pay-bnt'>立即支付</button>

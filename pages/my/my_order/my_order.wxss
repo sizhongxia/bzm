@@ -1,0 +1,15 @@
+page{ background: #f2f2f2;}
+.tab{ height: 80rpx; background: #fff; border-bottom: 1rpx solid #e5e5e5;}
+.tab view{ width: 375rpx; height: 80rpx; float: left; line-height: 80rpx; text-align: center;
+  font-size: 32rpx; color: #4c4c4c; position: relative;
+}
+.tab view.active{ color:#e95410;}
+.tab view.active::after{
+  position: absolute; content: ' '; height: 4rpx; background:#e95410; width: 375rpx;
+  bottom: 0; left: 0; 
+}
+
+.list-box{ }
+
+.list-box .list-item{ padding: 20rpx 50rpx;background: #fff; margin-bottom: 10rpx;}
+.list-box .list-item view{ font-size: 26rpx; color: #565656; line-height: 1.7;}

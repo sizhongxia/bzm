@@ -1,0 +1,61 @@
+<view style="height:40rpx;"></view>
+
+<view class='main-box'>
+    <view class='userinfo'>
+      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png' mode="scaleToFill" class='head-photo'></image>
+      <view class='title'>我正在白赚猫学习实战课程，挺不错的！</view>
+    </view>
+
+    <view class='banenr'>
+        <swiper
+  indicator-dots="{{swiper.indicatorDots}}"
+  autoplay="{{swiper.autoplay}}"
+  interval="{{swiper.interval}}"
+  duration="{{swiper.duration}}"
+  current="{{swiper.current}}"
+  class='index_banner' style='height:600rpx;'
+>
+  <block wx:for="{{swiper.imgUrls}}">
+    <swiper-item >
+      <image src="{{item}}" mode="widthFix" class="slide-image" style='width:100%'/>
+    </swiper-item>
+  </block>
+</swiper>
+<view class='prev banner-bnt' bindtap='prevImg'> <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-prev.png' mode="scaleToFill"></image></view>
+<view class='next banner-bnt' bindtap='nextImg'> <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-next.png' mode="scaleToFill"></image></view>
+
+    </view>
+    <view class='ctitle'>他们都在这里学习</view>
+    <view class='userlist'>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_1.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_2.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_3.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_4.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_5.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_6.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_7.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_8.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_9.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_10.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_11.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_12.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_13.png' mode="scaleToFill" class='photo'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_14.png' mode="scaleToFill" class='photo'></image>
+       <view style="clear:both;height:0"></view>
+    </view>
+
+    <view class='qrcode-box'>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my_13.png' mode="scaleToFill" class='qrcode'></image>
+       <view class='tag-box'>
+        <view class='tag-1'>名师亲授</view>
+        <view class='tag-2'>实战落地</view>
+        <view class='tag-3'>教练跟踪</view>
+        <view class='tag-4'>评估晋升</view>
+      </view>
+    </view>
+
+</view>
+
+<view class='ad'>
+一个广告语是啥来着
+</view>

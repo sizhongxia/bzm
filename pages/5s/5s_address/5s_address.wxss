@@ -1,0 +1,11 @@
+page{ background: #f2f2f2; padding-top: 16rpx;}
+.form-box{ background: #fff; padding: 55rpx 0;}
+.form-box .item-box{ padding: 12rpx 40rpx; height: 60rpx;}
+.form-box label{ float: left; display: block; width: 90rpx; text-indent: 26rpx;
+  font-size: 26rpx; color: #808080; height: 60rpx; line-height: 60rpx;
+}
+
+.form-box .picker{ display: block; float: right; width: 570rpx; height: 58rpx; border: 1rpx solid #e6e6e6; font-size: 26rpx; text-indent: 20rpx; line-height: 58rpx;color: #808080;
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-11.png) 522rpx center no-repeat;
+  background-size: 24rpx 13rpx;
+}

@@ -1,0 +1,11 @@
+
+<view class='form-box'>
+  <view class='item-box'>
+    <label>姓名</label>
+    <view class='text'>张三</view>
+  </view>
+   <view class='item-box'>
+    <label>电话</label>
+      <view class='text'>18035263460</view>
+  </view>
+</view>

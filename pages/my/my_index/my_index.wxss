@@ -1,0 +1,56 @@
+page{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-9.png) center bottom 50rpx no-repeat #f4f4f4;
+  background-size: 96rpx 99rpx;
+  
+ }
+
+.userinfo{ width: 750rpx; height: 450rpx; background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-10.png) no-repeat;
+  background-size:750rpx 450rpx; position: relative;
+}
+
+.userinfo .head-photo{ display: block; width: 143rpx; height: 143rpx; border-radius: 100%; border:3rpx solid #fff; position: absolute; top: 67rpx; left: 50%; margin-left: -71rpx;}
+
+.userinfo .name{ line-height: 1; text-align: center; font-size: 34rpx; color: #f4f4f4;
+  position: absolute; top: 236rpx; width: 750rpx;
+}
+.userinfo .tag{ height: 40rpx; width: 750rpx; position: absolute; top: 303rpx; text-align: center;}
+.userinfo .tag image{ display: inline-block; width: 113rpx; height: 40rpx; margin: 0 10rpx;}
+
+.nav-box{ width: 690rpx; height: 454rpx; background:url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-11.png) no-repeat;
+background-size:690rpx 454rpx; 
+ position: absolute;
+  top: 399rpx;left: 50%; margin-left: -345rpx;
+  border-top-left-radius: 10rpx;  border-top-right-radius: 10rpx;
+}
+
+.nav-box navigator{ display: block; margin: 0 auto; width: 610rpx; height: 98rpx; line-height: 98rpx; font-size: 30rpx; color: #333333; text-indent: 69rpx; border-bottom: 1px solid #eeeeee;
+  position: relative;
+}
+
+.nav-box navigator .to{ width: 17rpx; height: 27rpx; position: absolute;
+   background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-8.png) right center no-repeat;
+ background-size:14rpx 27rpx; right: 0; top: 35rpx;
+}
+
+.nav-box navigator.n1{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-4.png) left center no-repeat;
+  background-size: 37rpx 40rpx; 
+}
+
+.nav-box navigator.n2{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-5.png) left center no-repeat;
+  background-size: 36rpx 40rpx; 
+}
+
+.nav-box navigator.n3{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-6.png) left center no-repeat;
+  background-size: 40rpx; 
+}
+
+.nav-box navigator.n4{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-7.png) left center no-repeat;
+  background-size: 40rpx; 
+}
+
+
+.nav-box navigator text{ float: right; padding-right: 35rpx;}

@@ -1,0 +1,15 @@
+page {
+  background: #f2f2f2;
+  padding-top: 16rpx;
+}
+
+.message {
+  width: 750rpx;
+  height: 189rpx;
+  font-size: 30rpx;
+  color: #101010;
+  text-align: center;
+  padding-top: 355rpx;
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/icon-success.png) center 50rpx no-repeat #fff;
+  background-size: 200rpx;
+}

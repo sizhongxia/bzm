@@ -1,0 +1,20 @@
+<view class='form-box'>
+  <view class='item-box'>
+    <label>省：</label>
+    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
+      {{array[index]}}
+    </picker>
+  </view>
+   <view class='item-box'>
+    <label>市：</label>
+    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
+      {{array[index]}}
+    </picker>
+  </view>
+   <view class='item-box'>
+    <label>区：</label>
+    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
+      {{array[index]}}
+    </picker>
+  </view>
+</view>

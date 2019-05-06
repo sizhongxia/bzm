@@ -1,0 +1,32 @@
+page{ background: #f2f2f2; padding-top: 16rpx;}
+
+.main-box{ background: #fff; padding: 0 30rpx; padding-bottom: 50rpx;}
+
+.info-box{ border-bottom:1px solid #dedad8; padding: 30rpx 0; position: relative; height: 133rpx;}
+.info-box .thumb{ height: 133rpx; width: 223rpx; display: block; border-radius: 10rpx;
+ position: absolute; left: 0; top: 30rpx;
+}
+
+.info-box .name{ color: #191919; font-weight: bold; font-size: 30rpx;
+  position: absolute; left: 282rpx; height: 30rpx;
+} 
+
+.info-box .desc{ color: #9e9e9e; font-weight: bold; font-size: 30rpx;
+  position: absolute; left: 282rpx; top: 80rpx;
+} 
+
+.info-box .price{
+ color: #e95410; font-weight: bold; font-size: 30rpx;
+  position: absolute; left: 282rpx; top: 140rpx;
+  
+}
+
+.client-box{ padding: 30rpx 0; border-bottom:1px solid #dedad8;}
+.client-box .client-title{color: #191919; font-weight: bold; }
+.client-box .client-name{ font-size: 26rpx; color: #020202; line-height: 1.8}
+
+.explain{ font-size: 26rpx; line-height: 1.7; padding: 30rpx 0;}
+
+.rulse{ color: #2e88ee; font-size: 26rpx;}
+
+.pay-bnt{ width: 750rpx; height: 96rpx; background: #ff7600; color: #fff; text-align: center; line-height: 96rpx; font-size: 36rpx; border-radius: 0; position: fixed; bottom: 0;}

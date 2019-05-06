@@ -1,0 +1,56 @@
+page{ background: #f4f4f4;}
+.index-banner{ width: 750rpx;}
+.index-banner image.slide-image{ display: block; width: 750rpx; }
+
+
+.nav-box{ height: 160rpx; width: 100%; background: #fff;}
+.nav-box view{ float: left; width: 25%; text-align: center; padding-top: 96rpx; font-size: 26rpx; color: #999999; line-height: 1;}
+.nav-box .nav-1{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-1.png) center 39rpx no-repeat;
+  background-size:40rpx 44rpx; 
+}
+
+.nav-box .nav-2{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-2.png) center 39rpx no-repeat;
+  background-size:39rpx 44rpx; 
+}
+
+.nav-box .nav-3{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-3.png) center 39rpx no-repeat;
+  background-size:40rpx 44rpx; 
+}
+
+.nav-box .nav-4{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-4.png) center 39rpx no-repeat;
+  background-size:39rpx 44rpx; 
+}
+
+.title-box{ width: 750rpx; height: 138rpx; position: relative; 
+ background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-9.png)  706rpx 43rpx no-repeat #fff;
+ background-size:14rpx 27rpx; 
+}
+
+.title-box .name{ font-size: 34rpx; color: #333333;  line-height: 1; position: absolute; left: 30rpx; top: 40rpx;}
+.title-box .desc{ color:#999999; font-size:26rpx;line-height: 1; position: absolute; left: 30rpx; top: 88rpx; width: 500rpx; 
+white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
+}
+.title-box .state{ font-size: 30rpx; color: #107be9;line-height: 1; position: absolute; right: 67rpx; top: 40rpx;}
+.title-box .course-count{ color:#999999; font-size:26rpx;line-height: 1; position: absolute; right: 67rpx; top: 88rpx;}
+
+.course-box{ padding: 0 22rpx; border-bottom: 1rpx solid #eeeeee; padding-bottom: 30rpx; background: #fff;}
+.course-box navigator{ display: block; padding: 0 8rpx; width: 336rpx; height: 260rpx; float: left;}
+.course-box image{ display: block; width: 336rpx; height: 200rpx; border-radius: 10rpx;}
+.course-box .title{ height: 60rpx; line-height: 60rpx; font-size: 26rpx; color: #333333;
+ white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
+ width: 336rpx;
+}
+
+
+
+
+
+

@@ -1,13 +1,56 @@
 {
   "pages": [
-    "pages/index/index",
-    "pages/logs/logs"
+    "pages/course/course_index/course_index",
+    "pages/course/course_detail/course_detail",
+    "pages/common/pay_success/pay_success",
+    "pages/course/course_pay/course_pay",
+    "pages/5s/5s_index/5s_index",
+    "pages/5s/5s_detail/5s_detail",
+    "pages/5s/5s_address/5s_address",
+    "pages/tool/tool_index/tool_index",
+    "pages/tool/tool_pay/tool_pay",
+    "pages/my/my_index/my_index",
+    "pages/my/my_order/my_order",
+    "pages/my/my_sell/my_sell",
+    "pages/my/my_set/my_set",
+    "pages/my/my_set_edit/my_set_edit",
+    "pages/my/my_qrcode/my_qrcode"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "navigationBarBackgroundColor": "#e95410",
+    "navigationBarTitleText": "白赚猫",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#e95410",
+    "list": [
+      {
+        "pagePath": "pages/course/course_index/course_index",
+        "text": "课程",
+        "iconPath": "./img/icon-f1.png",
+        "selectedIconPath": "./img/icon-f1-ac.png"
+      },
+      {
+        "pagePath": "pages/5s/5s_index/5s_index",
+        "text": "5S店",
+        "iconPath": "./img/icon-f2.png",
+        "selectedIconPath": "./img/icon-f2-ac.png"
+      },
+      {
+        "pagePath": "pages/tool/tool_index/tool_index",
+        "text": "教具",
+        "iconPath": "./img/icon-f3.png",
+        "selectedIconPath": "./img/icon-f3-ac.png"
+      },
+      {
+        "pagePath": "pages/my/my_index/my_index",
+        "text": "我的",
+        "iconPath": "./img/icon-f4.png",
+        "selectedIconPath": "./img/icon-f4-ac.png"
+      }
+    ]
   },
   "sitemapLocation": "sitemap.json"
 }

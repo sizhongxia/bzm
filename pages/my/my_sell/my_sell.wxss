@@ -1,0 +1,21 @@
+page{ background: #f2f2f2;}
+
+.top-box{ height: 186rpx; background: #fff; position: relative;}
+.top-box .title{ font-size: 30rpx; color: #1d1d1d; line-height: 1; top: 42rpx; left: 30rpx; position: absolute;}
+
+.top-box .oprate{ font-size: 30rpx; height: 70rpx;  line-height: 70rpx; color: #0a0a0a;
+  position: absolute; top: 90rpx;
+}
+.top-box .oprate.oprate-1{ left: 30rpx;}
+
+.top-box .oprate.oprate-2{ right: 30rpx;}
+
+.top-box .oprate text{ padding-left:10rpx; color: #2e88ee; }
+
+.list-box{ background: #fff; padding-left: 36rpx;}
+.list-box .list-item{ position: relative; height: 129rpx; border-bottom: 1rpx solid #e2e2e2;}
+
+.list-box .list-item .head-photo{ display: block; width: 58rpx; height: 58rpx; border-radius: 100%; position: absolute; left: 0; top: 32rpx;}
+.list-box .list-item .name{ font-size: 30rpx; font-weight: bold; color: #191919; line-height: 1; position: absolute; left: 80rpx; top: 32rpx;}
+.list-box .list-item .time{ font-size: 26rpx; color: #1d1d1d; line-height: 1; position: absolute; left: 80rpx; top: 78rpx;}
+.list-box .list-item .num{ font-size: 26rpx; color: #1d1d1d; line-height: 1; position: absolute; right: 30rpx; top: 30rpx;}

@@ -1,0 +1,31 @@
+<image  mode="widthFix" class='top_thumb' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-9.png' style='width:100%;'></image>
+
+<view class='title-box'>
+  <view class='name'>5S店名称</view>
+  <view class='desc'>这是5s店的描述</view>
+</view>
+
+<view class='userinfo'>
+  <view class='infobox'>
+    <image mode="scaleToFill" class='head-photo' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-9.png'></image>
+    <view class='name'>5s店负责人姓名</view>
+    <view class='phone'>电话</view>
+  </view>
+</view>
+
+<view class='article-box'>
+<view class='text' style='margin-bottom:30rpx;'>在改善生产现场环境、提升生产效率、保障产品品质、营造企业管理氛围以及创建良好的企业文化等方面取得显著效果</view>
+  <image class='thumb' mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-10.png'></image>
+</view>
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+
+
+<view class='ctitle-box'>
+  <view class='name'>他的5S店</view>
+</view>
+
+<view class='article-box'>
+<view class='text' style='margin-bottom:30rpx;'>5S跟4S店有什么区别呢？其实就是在4S店的基础上增添了一个二手车交易second-hand。其实在绝大部分地区，很多4S店也有二手车的业务，为啥还叫4S店呢？这就涉及到一个"厂商认可的二手车"问题了，5S店的二手车是经过厂商认可的二手车。两者还是有一定区别的。</view>
+  <image class='thumb' mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-8.png'></image>
+</view>
