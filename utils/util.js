@@ -14,7 +14,7 @@ function request(url, data = {}, method = "POST") {
         if (res.statusCode === 401) {
           wx.removeStorageSync('token');
           wx.redirectTo({
-            url: '/pages/auth/login/login'
+            url: '/pages/wx/auth/auth'
           });
         } else {
           if (res.statusCode === 200) {

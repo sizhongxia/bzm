@@ -8,6 +8,11 @@ module.exports = {
       size: size
     });
   },
+  courseDetail: (resId) => {
+    return util.post('/wxmp/api/course/detail', {
+      resId: resId
+    });
+  },
   placeOrder: (courseId) => {
     return util.post('/wxmp/api/course/placeOrder', {
       courseId: courseId
