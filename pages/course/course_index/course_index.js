@@ -1,6 +1,8 @@
-var util = require('../../../utils/util.js')
-var bannerSer = require('../../../apis/banner.js')
-var authSer = require('../../../apis/auth.js')
+const util = require('../../../utils/util.js')
+const authSer = require('../../../apis/auth.js')
+const bannerSer = require('../../../apis/banner.js')
+const courseSer = require('../../../apis/course.js')
+
 const app = getApp()
 
 Page({
@@ -13,26 +15,32 @@ Page({
   },
 
   onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '课程'
-    });
-
-    bannerSer.bannerList('KC').then(res => {
-      this.setData({
-        imgUrls: res
-      });
-    }).catch(err => {})
-
+    // 扫码进入，获取参数
     var uscene = '';
     if (!!options.scene) {
       try {
         wx.setStorageSync('uscene', uscene)
       } catch (e) { }
     }
-    this.checkAuth(uscene);
+    // 设置标题
+    wx.setNavigationBarTitle({
+      title: '课程'
+    });
+    // 检查微信授权
+    this.checkAuth();
+    // Banner轮播图
+    bannerSer.bannerList('KC').then(res => {
+      this.setData({
+        imgUrls: res
+      });
+      return courseSer.courseList(1, 10)
+    }).then(res => {
+      console.info(res)
+    }).catch(err => {})
+    
   },
 
-  checkAuth: function (uscene) {
+  checkAuth: function () {
     util.login().then(res => {
       return authSer.checkUser(res)
     }).then(res => {
@@ -46,10 +54,10 @@ Page({
           success: (res) => {
             if (res.confirm) {
               wx.redirectTo({
-                url: '/pages/wx/auth/auth?uid=' + uscene
+                url: '/pages/wx/auth/auth'
               })
             } else {
-              this.checkAuth(uscene)
+              this.checkAuth()
             }
           }
         })
