@@ -52,5 +52,10 @@
       }
     ]
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "位置信息将被用来计算您到商户的距离，以便为您提供更好的服务。"
+    }
+  },
   "sitemapLocation": "sitemap.json"
 }
