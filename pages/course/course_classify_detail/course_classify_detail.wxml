@@ -1,0 +1,39 @@
+<image  mode="scaleToFill" class='top_thumb' src='{{course.coverPicUrl}}'></image>
+
+<view class='title-box'>
+  <view class='name'>{{course.courseName}}</view>
+  <view class='desc'>{{course.courseResume}}</view>
+</view>
+
+<view class='nav-box'>
+  <view class='nav-1'>名师亲授</view>
+  <view class='nav-2'>实战落地</view>
+  <view class='nav-3'>教练跟踪</view>
+  <view class='nav-4'>评估晋升</view>
+</view>
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+
+<view class='ctitle-box'>
+  <view class='name'>课列表</view>
+  <view class='desc'>({{course.courseLs.length}})</view>
+</view>
+<view class='course-box'>
+  <navigator url='../course_detail/course_detail?courseId={{item.resId}}' wx:for="{{course.courseLs}}" wx:key="resId">
+    <image  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
+    <view class='title'>{{item.itemName}}</view>
+  </navigator>
+   
+  <view style="clear:both;height:0"></view>
+</view>
+
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+<view class='ctitle-box'>
+  <view class='name'>课程说明</view>
+</view>
+
+<view class='article-box'>
+  <view class='text' style='margin-bottom:30rpx;' wx:if="{{course.courseContent}}">{{course.courseContent}}</view>
+  <image wx:for="{{course.pisLs}}" wx:key="resId" class='thumb' mode="widthFix" style='display:flex;' src='{{item.picUrl}}'></image>
+</view>

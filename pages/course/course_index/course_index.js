@@ -7,10 +7,11 @@ const app = getApp()
 
 Page({
   data: {
-    imgUrls: [],
+    banners: [],
+    courses: [],
     indicatorDots: true,
     autoplay: true,
-    interval: 5000,
+    interval: 3000,
     duration: 1000
   },
 
@@ -26,46 +27,50 @@ Page({
     wx.setNavigationBarTitle({
       title: '课程'
     });
-    // 检查微信授权
-    this.checkAuth();
     // Banner轮播图
-    bannerSer.bannerList('KC').then(res => {
+    // wx.showLoading({
+    //   title: '请稍后...',
+    //   mask: true
+    // });
+    bannerSer.bannerList('KC').then(banners => {
       this.setData({
-        imgUrls: res
+        banners: banners
       });
       return courseSer.courseList(1, 10)
-    }).then(res => {
-      console.info(res)
-    }).catch(err => {})
-    
-  },
-
-  checkAuth: function () {
-    util.login().then(res => {
-      return authSer.checkUser(res)
-    }).then(res => {
-      if (!res) {
-        wx.showModal({
-          title: '温馨提示',
-          content: '请点击确定，进行微信授权',
-          cancelColor: '#444444',
-          confirmText: '授权',
-          confirmColor: '#e95410',
-          success: (res) => {
-            if (res.confirm) {
-              wx.redirectTo({
-                url: '/pages/wx/auth/auth'
-              })
-            } else {
-              this.checkAuth()
-            }
-          }
-        })
-      }
+    }).then(courses => {
+      this.setData({
+        courses: courses
+      })
+      wx.hideLoading();
     }).catch(err => {
-      console.error(err)
+      wx.hideLoading();
     })
   },
+
+  // checkAuth: function () {
+  //   util.login().then(res => {
+  //     return authSer.checkUser(res)
+  //   }).then(res => {
+  //     if (!res) {
+  //       wx.showModal({
+  //         title: '温馨提示',
+  //         content: '请点击确定，进行微信授权',
+  //         cancelColor: '#444444',
+  //         confirmText: '授权',
+  //         confirmColor: '#e95410',
+  //         success: (res) => {
+  //           if (res.confirm) {
+  //             wx.redirectTo({
+  //               url: '/pages/wx/auth/auth'
+  //             })
+  //           } else {
+  //             this.checkAuth()
+  //           }
+  //         }
+  //       })
+  //     }
+  //   }).catch(err => {})
+  // },
 
   changeIndicatorDots(e) {
     this.setData({

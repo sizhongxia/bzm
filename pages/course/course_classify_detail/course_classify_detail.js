@@ -8,18 +8,18 @@ Page({
 
   onLoad: function (options) {
     wx.setNavigationBarTitle({
-      title: '课程详情'
+      title: '专题详情'
     });
     courseId = options.courseId;
     this.loadCourseDetail();
   },
 
-  loadCourseDetail: function() {
+  loadCourseDetail: function () {
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    courseSer.courseItemDetail(courseId).then(course => {
+    courseSer.courseDetail(courseId).then(course => {
       this.setData({
         course: course
       })

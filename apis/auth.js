@@ -7,11 +7,7 @@ module.exports = {
       code: code
     });
   },
-  login: (code, nickName, avatarUrl) => {
-    return util.post('/wxmp/api/login', {
-      code: code,
-      nickName: nickName,
-      avatarUrl: avatarUrl
-    });
+  login: (data) => {
+    return util.post('/wxmp/api/login', data);
   }
 }

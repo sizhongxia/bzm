@@ -13,6 +13,11 @@ module.exports = {
       resId: resId
     });
   },
+  courseItemDetail: (resId) => {
+    return util.post('/wxmp/api/course/itemDetail', {
+      resId: resId
+    });
+  },
   placeOrder: (courseId) => {
     return util.post('/wxmp/api/course/placeOrder', {
       courseId: courseId

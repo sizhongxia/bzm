@@ -5,7 +5,7 @@
   duration="{{duration}}"
   class='index_banner' style='height:297rpx;'
 >
-  <block wx:for="{{imgUrls}}" wx:key="resId">
+  <block wx:for="{{banners}}" wx:key="resId">
     <swiper-item >
       <image src="{{item.picUrl}}" mode="widthFix" class="slide-image" style='width:100%'/>
     </swiper-item>
@@ -21,43 +21,21 @@
 
 <view style='height:20rpx; background:#f4f4f4;'></view>
 
-<view class='title-box'>
-  <view class='name'>一级分类</view>
-  <view class='desc'>分类描述劳动关系协调师二级鉴定分类描述劳动关系协调师二级鉴定</view>
-  <view class='state'>正在学习</view>
-  <view class='course-count'>4门课程</view>
-</view>
-
+<block wx:for="{{courses}}" wx:key="resId">
+<navigator url='../course_classify_detail/course_classify_detail?courseId={{item.resId}}'>
+  <view class='title-box'>
+    <view class='name'>{{item.courseName}}</view>
+    <view class='desc'>{{item.courseResume}}</view>
+    <view class='state' wx:if="{{item.learning==1}}">正在学习</view>
+    <view class='state' wx:else style='color:#e95410;'>￥{{item.coursePrice}}元</view>
+    <view class='course-count'>{{item.courseNum}}门课程</view>
+  </view>
+</navigator>
 <view class='course-box'>
-   <navigator url='../course_detail/course_detail'>
-      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-5.png'></image>
-      <view class='title'>摄影的基础与技巧</view>
-   </navigator>
-    <navigator url='../course_detail/course_detail'>
-      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-6.png'></image>
-      <view class='title'>摄影的基础与技巧</view>
-   </navigator>
-   
-<view style="clear:both;height:0"></view>
+  <navigator wx:for="{{item.items}}" wx:for-item="iitem" wx:key="courseItemResId" url='../course_detail/course_detail?courseId={{iitem.courseItemResId}}'>
+    <image  mode="scaleToFill" src='{{iitem.courseItemCoverPicUrl}}'></image>
+    <view class='title'>{{iitem.courseItemName}}</view>
+  </navigator>
+  <view style="clear:both;height:0"></view>
 </view>
-
-<view class='title-box'>
-  <view class='name'>一级分类</view>
-  <view class='desc'>分类描述劳动关系协调师二级鉴定</view>
-  <view class='state' style='color:#e95410;'>￥12元</view>
-  <view class='course-count'>4门课程</view>
-</view>
-
-<view class='course-box'>
-   <navigator url='../course_detail/course_detail'>
-      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-7.png'></image>
-      <view class='title'>摄影的基础与技巧</view>
-   </navigator>
-    <navigator url='../course_detail/course_detail'>
-      <image  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-8.png'></image>
-      <view class='title'>摄影的基础与技巧</view>
-   </navigator>
-   
-<view style="clear:both;height:0"></view>
-</view>
-
+</block>

@@ -1,2 +1,3 @@
-<!--pages/wx/auth/auth.wxml-->
-<text>pages/wx/auth/auth.wxml</text>
+<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+  获取用户信息
+</button>
