@@ -1,5 +1,5 @@
-const baseUrl = 'https://api.bzm365.com';
-// const baseUrl = 'http://127.0.0.1:9091';
+// const baseUrl = 'https://api.bzm365.com';
+const baseUrl = 'http://192.168.1.105:9091';
 
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
@@ -16,20 +16,21 @@ function request(url, data = {}, method = "POST") {
         if (res.statusCode === 401) {
           // 需要重新登陆
           wx.removeStorageSync('token');
-          login().then(code => {
-            return request('/wxmp/api/login', {
-              code: code
-            })
-          }).then(token => {
-            wx.setStorageSync('token', token);
-            return request(url, data, method)
-          }).then(res => {
-            resolve(res)
-          }).catch(err => {
-            wx.redirectTo({
-              url: '/pages/wx/auth/auth'
-            });
-          })
+          // login().then(code => {
+          //   return request('/wxmp/api/login', {
+          //     code: code
+          //   })
+          // }).then(token => {
+          //   wx.setStorageSync('token', token);
+          //   return request(url, data, method)
+          // }).then(res => {
+          //   resolve(res)
+          // }).catch(err => {
+          wx.redirectTo({
+            url: '/pages/wx/auth/auth'
+          });
+          // })
+          // reject(res.data);
         } else {
           if (res.statusCode === 200) {
             if (res.data.code === 200) {
@@ -39,7 +40,6 @@ function request(url, data = {}, method = "POST") {
             }
           } else {
             reject({
-              code: 999,
               message: '请求失败'
             });
           }
@@ -47,6 +47,7 @@ function request(url, data = {}, method = "POST") {
       },
       fail: function (err) {
         showErrorToast('请检查网络连接');
+        wx.hideLoading();
         reject(err);
       }
     })

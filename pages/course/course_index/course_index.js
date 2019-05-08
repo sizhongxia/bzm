@@ -1,14 +1,16 @@
-const util = require('../../../utils/util.js')
-const authSer = require('../../../apis/auth.js')
-const bannerSer = require('../../../apis/banner.js')
-const courseSer = require('../../../apis/course.js')
+const util = require('../../../utils/util.js');
+const authSer = require('../../../apis/auth.js');
+const bannerSer = require('../../../apis/banner.js');
+const courseSer = require('../../../apis/course.js');
 
-const app = getApp()
+const app = getApp();
 
+var loadCoursesOver = false;
 Page({
   data: {
     banners: [],
     courses: [],
+    currentPage: 1,
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -16,34 +18,79 @@ Page({
   },
 
   onLoad: function (options) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     // 扫码进入，获取参数
     var uscene = '';
     if (!!options.scene) {
       try {
         wx.setStorageSync('uscene', uscene)
-      } catch (e) { }
+      } catch (e) {
+        wx.hideLoading();
+        wx.redirectTo({
+          url: '/pages/wx/auth/auth'
+        });
+        return;
+      }
     }
     // 设置标题
     wx.setNavigationBarTitle({
       title: '课程'
     });
+    util.login().then(code => {
+      return authSer.login({
+        code: code
+      })
+    }).then(token => {
+      wx.setStorageSync('token', token);
+      wx.hideLoading();
+      this.loadIndexData();
+    }).catch(err => {
+      wx.hideLoading();
+      if (err && err.message) {
+        wx.showToast({
+          title: err.message,
+          icon: 'none',
+          success: () => {
+            setTimeout(() => {
+              wx.redirectTo({
+                url: '/pages/wx/auth/auth'
+              });
+            }, 1500)
+          }
+        });
+      }
+    })
+  },
+
+  loadIndexData(cb) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
     // Banner轮播图
-    // wx.showLoading({
-    //   title: '请稍后...',
-    //   mask: true
-    // });
     bannerSer.bannerList('KC').then(banners => {
       this.setData({
         banners: banners
       });
-      return courseSer.courseList(1, 10)
+      // 默认加载第一页10个
+      return courseSer.courseList(1, 10);
     }).then(courses => {
-      this.setData({
-        courses: courses
-      })
+      if (courses && courses.length > 0) {
+        this.setData({
+          courses: courses,
+          currentPage: 2
+        });
+      } else {
+        loadCoursesOver = true;
+      }
       wx.hideLoading();
+      typeof cb === "function" && cb();
     }).catch(err => {
       wx.hideLoading();
+      typeof cb === "function" && cb();
     })
   },
 
@@ -72,24 +119,35 @@ Page({
   //   }).catch(err => {})
   // },
 
-  changeIndicatorDots(e) {
-    this.setData({
-      indicatorDots: !this.data.indicatorDots
+  onReachBottom() {
+    if (loadCoursesOver) {
+      return;
+    }
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    courseSer.courseList(this.data.currentPage, 10).then(courses => {
+      var _courses = this.data.courses;
+      if (courses && courses.length > 0) {
+        this.setData({
+          courses: _courses.concat(courses),
+          currentPage: this.data.currentPage + 1
+        });
+      } else {
+        loadCoursesOver = true;
+      }
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
     })
   },
-  changeAutoplay(e) {
-    this.setData({
-      autoplay: !this.data.autoplay
-    })
-  },
-  intervalChange(e) {
-    this.setData({
-      interval: e.detail.value
-    })
-  },
-  durationChange(e) {
-    this.setData({
-      duration: e.detail.value
-    })
+
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading();
+    this.loadIndexData(function () {
+      wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
+    });
   }
 })

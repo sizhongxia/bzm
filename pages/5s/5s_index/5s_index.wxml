@@ -5,9 +5,9 @@
   duration="{{duration}}"
   class='index_banner' style="height: 297rpx;"
 >
-  <block wx:for="{{imgUrls}}">
+  <block wx:for="{{banners}}" wx:key="resId">
     <swiper-item >
-      <image src="{{item}}" mode="widthFix" class="slide-image" style='width:100%' />
+      <image src="{{item.picUrl}}" mode="scaleToFill" class="slide-image" style='width:100%'/>
     </swiper-item>
   </block>
 </swiper>
@@ -20,45 +20,13 @@
 <view style='height:20rpx; background:#f4f4f4;'></view>
 
 <view class='list-box'>
-  <navigator url='../5s_detail/5s_detail' class='item-box'>
-    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
-    <view class='name'>实训地址名称</view>
-     <view class='address'>详细地址</view>
-    <view class='juli'>12km</view>
-    <view class='phone'>电话</view>
-    <view class='map'>导航</view>
-  </navigator>
- <navigator url='../5s_detail/5s_detail' class='item-box'>
-    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
-    <view class='name'>实训地址名称</view>
-     <view class='address'>详细地址</view>
-    <view class='juli'>12km</view>
-    <view class='phone'>电话</view>
-    <view class='map'>导航</view>
-  </navigator>
-<navigator url='../5s_detail/5s_detail' class='item-box'>
-    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
-    <view class='name'>实训地址名称</view>
-     <view class='address'>详细地址</view>
-    <view class='juli'>12km</view>
-    <view class='phone'>电话</view>
-    <view class='map'>导航</view>
-  </navigator>
-<navigator url='../5s_detail/5s_detail' class='item-box'>
-    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
-    <view class='name'>实训地址名称</view>
-     <view class='address'>详细地址</view>
-    <view class='juli'>12km</view>
-    <view class='phone'>电话</view>
-    <view class='map'>导航</view>
-  </navigator>
-<navigator url='../5s_detail/5s_detail' class='item-box'>
-    <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'></image>
-    <view class='name'>实训地址名称</view>
-     <view class='address'>详细地址</view>
-    <view class='juli'>12km</view>
-    <view class='phone'>电话</view>
-    <view class='map'>导航</view>
+  <navigator wx:for="{{fives}}" hover-class="none" wx:key="resId" url='../5s_detail/5s_detail?resId={{item.resId}}' class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
+    <view class='name'>{{item.fivesName}}</view>
+    <view class='address'>{{item.addrDetail}}</view>
+    <view class='juli'>{{item.distance}}</view>
+    <view class='phone' catchtap='makePhoneCall' data-phone='{{item.customerServiceTel}}'>电话</view>
+    <view class='map' catchtap='openLocation' data-name='{{item.fivesName}}' data-address='{{item.addrDetail}}' data-lng='{{item.addrLng}}' data-lat='{{item.addrLat}}'>导航</view>
   </navigator>
 </view>
 

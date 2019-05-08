@@ -32,8 +32,8 @@
   </view>
 </navigator>
 <view class='course-box'>
-  <navigator wx:for="{{item.items}}" wx:for-item="iitem" wx:key="courseItemResId" url='../course_detail/course_detail?courseId={{iitem.courseItemResId}}'>
-    <image  mode="scaleToFill" src='{{iitem.courseItemCoverPicUrl}}'></image>
+  <navigator wx:for="{{item.items}}" wx:for-item="iitem" wx:key="courseItemResId" hover-class="none" url='../course_detail/course_detail?courseId={{iitem.courseItemResId}}'>
+    <image mode="scaleToFill" src='{{iitem.courseItemCoverPicUrl}}'></image>
     <view class='title'>{{iitem.courseItemName}}</view>
   </navigator>
   <view style="clear:both;height:0"></view>

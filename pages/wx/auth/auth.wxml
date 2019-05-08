@@ -1,3 +1,5 @@
-<button open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
+<button wx:if="{{forbiddenLocation}}" open-type="openSetting" bindopensetting="onGotUserLocation">打开设置页</button>
+
+<button wx:if="{{goGotUserInfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
   获取用户信息
 </button>

@@ -19,7 +19,7 @@
     "pages/wx/auth/auth"
   ],
   "window": {
-    "backgroundTextStyle": "light",
+    "backgroundTextStyle": "dark",
     "navigationBarBackgroundColor": "#e95410",
     "navigationBarTitleText": "白赚猫",
     "navigationBarTextStyle": "white"

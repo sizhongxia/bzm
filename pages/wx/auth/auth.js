@@ -2,6 +2,47 @@ const util = require('../../../utils/util.js')
 const authSer = require('../../../apis/auth.js')
 
 Page({
+  data: {
+    goGotUserInfo: false,
+    forbiddenLocation: false
+  },
+  onShow() {
+    this.showAuthLocationModel()
+  },
+  showAuthLocationModel() {
+    const _this = this;
+    wx.getSetting({
+      success(res) {
+        if (!res.authSetting['scope.userLocation']) {
+          wx.authorize({
+            scope: 'scope.userLocation',
+            success() {
+              _this.setData({
+                goGotUserInfo: true
+              });
+            },
+            fail() {
+              _this.setData({
+                forbiddenLocation: true
+              });
+            }
+          })
+        } else {
+          _this.setData({
+            goGotUserInfo: true
+          });
+        }
+      }
+    })
+  },
+  onGotUserLocation(e) {
+    if (e.detail.authSetting['scope.userLocation']) {
+      this.setData({
+        goGotUserInfo: true,
+        forbiddenLocation: false
+      });
+    }
+  },
   onGotUserInfo(e) {
     if (e.detail.userInfo) {
       wx.showLoading({
