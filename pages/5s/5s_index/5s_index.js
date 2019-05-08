@@ -125,7 +125,6 @@ Page({
     })
   },
 
-
   onPullDownRefresh() {
     wx.showNavigationBarLoading();
     this.loadIndexData(function () {

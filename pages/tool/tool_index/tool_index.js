@@ -1,68 +1,78 @@
-// pages/tool/tool_index/tool_index.js
+
+const productSer = require('../../../apis/product.js');
+const app = getApp();
+var loadProductOver = false;
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    products: [],
+    currentPage: 1
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    // 设置标题
     wx.setNavigationBarTitle({
       title: '教具'
     })
+    this.loadIndexData();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  loadIndexData(cb) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    productSer.productList({
+      page: 1,
+      size: 10
+    }).then(products => {
+      if (products && products.length > 0) {
+        this.setData({
+          products: products,
+          currentPage: 2
+        });
+      } else {
+        loadProductOver = true;
+      }
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    }).catch(err => {
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  onReachBottom() {
+    if (loadProductOver) {
+      return;
+    }
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    productSer.productList({
+      page: _this.data.currentPage,
+      size: 10
+    }).then(products => {
+      var _products = _this.data.products;
+      if (products && products.length > 0) {
+        _this.setData({
+          products: _products.concat(products),
+          currentPage: _this.data.currentPage + 1
+        });
+      } else {
+        loadProductOver = true;
+      }
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading();
+    this.loadIndexData(function () {
+      wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
+    });
   }
 })

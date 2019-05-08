@@ -8,6 +8,13 @@ module.exports = {
       size: size
     });
   },
+  
+  productDetail: (resId) => {
+    return util.post('/wxmp/api/product/detail', {
+      resId: resId
+    });
+  },
+  
   placeOrder: (productId, productNum, ecipientName, recipientPhoneNo, recipientAddrDetail) => {
     return util.post('/wxmp/api/product/placeOrder', {
       productId: productId,

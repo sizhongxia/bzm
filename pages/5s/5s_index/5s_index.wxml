@@ -20,7 +20,7 @@
 <view style='height:20rpx; background:#f4f4f4;'></view>
 
 <view class='list-box'>
-  <navigator wx:for="{{fives}}" hover-class="none" wx:key="resId" url='../5s_detail/5s_detail?resId={{item.resId}}' class='item-box'>
+  <navigator wx:for="{{fives}}" hover-class="none" wx:key="resId" url='../5s_detail/5s_detail?fivesId={{item.resId}}' class='item-box'>
     <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
     <view class='name'>{{item.fivesName}}</view>
     <view class='address'>{{item.addrDetail}}</view>

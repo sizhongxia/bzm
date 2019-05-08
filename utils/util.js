@@ -1,5 +1,5 @@
-// const baseUrl = 'https://api.bzm365.com';
-const baseUrl = 'http://192.168.1.105:9091';
+const baseUrl = 'https://api.bzm365.com';
+// const baseUrl = 'http://192.168.1.105:9091';
 
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {
@@ -46,8 +46,11 @@ function request(url, data = {}, method = "POST") {
         }
       },
       fail: function (err) {
-        showErrorToast('请检查网络连接');
         wx.hideLoading();
+        wx.showToast({
+          title: '请检查网络连接',
+          icon: 'none'
+        });
         reject(err);
       }
     })
