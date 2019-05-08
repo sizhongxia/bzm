@@ -2,10 +2,12 @@
 <view class='list-box'>
 
   <view class='item-box' wx:for="{{products}}" wx:key="resId">
-    <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
-    <view class='name'>{{item.productName}}</view>
-     <view class='address'>{{item.productResume}}</view>
-    <view class='price'>¥{{item.productPriceTxt}}</view>
+    <navigator url='../tool_detail/tool_detail?productId={{item.resId}}' hover-class="none">
+      <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
+      <view class='name'>{{item.productName}}</view>
+      <view class='address'>{{item.productResume}}</view>
+      <view class='price'>¥{{item.productPriceTxt}}</view>
+    </navigator>
     <navigator url='../tool_pay/tool_pay?productId={{item.resId}}' class='buy'>立即购买</navigator>
   </view>
 

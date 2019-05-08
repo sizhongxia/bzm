@@ -15,13 +15,7 @@ module.exports = {
     });
   },
   
-  placeOrder: (productId, productNum, ecipientName, recipientPhoneNo, recipientAddrDetail) => {
-    return util.post('/wxmp/api/product/placeOrder', {
-      productId: productId,
-      productNum: productNum,
-      ecipientName: ecipientName,
-      recipientPhoneNo: recipientPhoneNo,
-      recipientAddrDetail: recipientAddrDetail
-    });
+  placeOrder: (orderModel) => {
+    return util.post('/wxmp/api/product/placeOrder', orderModel);
   }
 }

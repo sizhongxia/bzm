@@ -1,20 +1,38 @@
-<view class='form-box'>
+<view class='form-box' style='padding: 24rpx 0'>
   <view class='item-box'>
     <label>省：</label>
-    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
-      {{array[index]}}
+    <picker class='picker' bindchange="bindProvinceChange" value="{{provinceIndex}}" range="{{provinces}}" range-key='name'>
+      {{provinces[provinceIndex].name}}
     </picker>
   </view>
    <view class='item-box'>
     <label>市：</label>
-    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
-      {{array[index]}}
+    <picker class='picker' bindchange="bindCityChange" value="{{cityIndex}}" range="{{cities}}" range-key='name'>
+      {{cities[cityIndex].name}}
     </picker>
   </view>
    <view class='item-box'>
     <label>区：</label>
-    <picker class='picker' bindchange="bindPickerChange" value="{{array[index]}}" range="{{array}}">
-      {{array[index]}}
+    <picker class='picker' bindchange="bindCountyChange" value="{{countyIndex}}" range="{{counties}}" range-key='name'>
+      {{counties[countyIndex].name}}
     </picker>
   </view>
+  <view style='text-align:center'>
+    <button style='width: 320rpx;margin:32rpx auto 0;' bindtap='searchFives' size='mini'>检索</button>
+  </view>
 </view>
+
+<view style='height:20rpx; background:#f4f4f4;'></view>
+
+<view class='list-box'>
+  <navigator wx:for="{{fives}}" hover-class="none" wx:key="resId" url='../5s_detail/5s_detail?fivesId={{item.resId}}' class='item-box'>
+    <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
+    <view class='name'>{{item.fivesName}}</view>
+    <view class='address'>{{item.addrDetail}}</view>
+    <view class='juli'>{{item.distance}}</view>
+    <view class='phone' catchtap='makePhoneCall' data-phone='{{item.customerServiceTel}}'>电话</view>
+    <view class='map' catchtap='openLocation' data-name='{{item.fivesName}}' data-address='{{item.addrDetail}}' data-lng='{{item.addrLng}}' data-lat='{{item.addrLat}}'>导航</view>
+  </navigator>
+  <view wx:if="{{!firstLoad && fives.length === 0}}">未查询到5S店信息</view>
+</view>
+

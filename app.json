@@ -9,6 +9,7 @@
     "pages/5s/5s_detail/5s_detail",
     "pages/5s/5s_address/5s_address",
     "pages/tool/tool_index/tool_index",
+    "pages/tool/tool_detail/tool_detail",
     "pages/tool/tool_pay/tool_pay",
     "pages/my/my_index/my_index",
     "pages/my/my_order/my_order",

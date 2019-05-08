@@ -1,75 +1,171 @@
-// pages/5s/5s_address/5s_address.js
+
+const fivesSer = require('../../../apis/fives.js');
+const areaSer = require('../../../apis/area.js');
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-    array: ['美国', '中国', '巴西', '日本'],
-    index:0
-  },
-  bindPickerChange(e) {
-    console.log('picker发送选择改变，携带值为', e.detail.value)
-    this.setData({
-      index: e.detail.value
-    })
+    provinces: [],
+    provinceIndex: 0,
+    cities: [],
+    cityIndex: 0,
+    counties: [],
+    countyIndex: 0,
+    fives: [],
+    firstLoad: true
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    // 设置标题
     wx.setNavigationBarTitle({
-      title: '地址检索'
+      title: '5S店'
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    areaSer.areas('86').then(provinces => {
+      this.setData({
+        provinces: provinces
+      })
+      return areaSer.areas(provinces[0].code)
+    }).then(cities => {
+      this.setData({
+        cities: cities
+      })
+      return areaSer.areas(cities[0].code)
+    }).then(counties => {
+      this.setData({
+        counties: counties
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    });
+  },
+
+  searchFives() {
+    this.loadIndexData(this.data.provinces[this.data.provinceIndex].code,
+      this.data.cities[this.data.cityIndex].code,
+      this.data.counties[this.data.countyIndex].code
+    );
+  },
+
+  loadIndexData(provinceCode, cityCode, countyCode) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    const _this = this;
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        const latitude = res.latitude;
+        const longitude = res.longitude;
+        _this.loadData(longitude, latitude, provinceCode, cityCode, countyCode)
+      },
+      fail() {
+        _this.loadData('', '', provinceCode, cityCode, countyCode)
+      }
+    });
+  },
+
+  loadData(longitude, latitude, provinceCode, cityCode, countyCode) {
+    const _this = this;
+    fivesSer.fivesList({
+      lng: longitude,
+      lat: latitude,
+      provinceCode: provinceCode,
+      cityCode: cityCode,
+      countyCode: countyCode,
+      page: 1,
+      size: 999999
+    }).then(fives => {
+      if (fives && fives.length > 0) {
+        _this.setData({
+          fives: fives,
+          firstLoad: false
+        });
+      } else {
+        _this.setData({
+          fives: [],
+          firstLoad: false
+        });
+      }
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
     })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  bindProvinceChange(e) {
+    var index = parseInt(e.detail.value);
+    this.setData({
+      provinceIndex: index,
+      cities: [],
+      cityIndex: 0,
+      counties: [],
+      countyIndex: 0
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    areaSer.areas(this.data.provinces[index].code).then(cities => {
+      this.setData({
+        cities: cities
+      })
+      return areaSer.areas(this.data.cities[0].code);
+    }).then(counties => {
+      this.setData({
+        counties: counties
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
+  bindCityChange(e) {
+    var index = parseInt(e.detail.value);
+    this.setData({
+      cityIndex: index,
+      counties: [],
+      countyIndex: 0
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    areaSer.areas(this.data.cities[index].code).then(counties => {
+      this.setData({
+        counties: counties
+      })
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  bindCountyChange(e) {
+    var index = parseInt(e.detail.value);
+    this.setData({
+      countyIndex: index
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  makePhoneCall(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
   },
 
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  openLocation(e) {
+    wx.openLocation({
+      latitude: e.currentTarget.dataset.lat,
+      longitude: e.currentTarget.dataset.lng,
+      name: e.currentTarget.dataset.name,
+      address: e.currentTarget.dataset.address
+    })
   }
 })

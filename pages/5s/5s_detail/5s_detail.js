@@ -26,35 +26,45 @@ Page({
       success(res) {
         const latitude = res.latitude;
         const longitude = res.longitude;
-        fivesSer.fivesDetail({
-          resId: fivesId,
-          lng: longitude,
-          lat: latitude
-        }).then(fives => {
-          const marker = {
-            iconPath: '/img/location.png',
-            id: 0,
-            latitude: fives.addrLat,
-            longitude: fives.addrLng,
-            width: 32,
-            height: 32
-          }
-          _this.setData({
-            fives: fives,
-            markers: [marker]
-          })
-          wx.hideLoading();
-          typeof cb === "function" && cb();
-        }).catch(err => {
-          wx.hideLoading();
-          typeof cb === "function" && cb();
-        });
+        _this.loadDetail(longitude, latitude, cb);
       },
       fail() {
-        wx.hideLoading();
-        typeof cb === "function" && cb();
+        _this.loadDetail('', '', cb);
       }
     });
+  },
+
+  loadDetail(longitude, latitude, cb) {
+    const _this = this;
+    fivesSer.fivesDetail({
+      resId: fivesId,
+      lng: longitude,
+      lat: latitude
+    }).then(fives => {
+      const marker = {
+        iconPath: '/img/location.png',
+        id: 0,
+        latitude: fives.addrLat,
+        longitude: fives.addrLng,
+        width: 32,
+        height: 32
+      }
+      _this.setData({
+        fives: fives,
+        markers: [marker]
+      })
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    }).catch(err => {
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    });
+  },
+
+  makePhoneCall(e) {
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone
+    })
   },
 
   onPullDownRefresh() {

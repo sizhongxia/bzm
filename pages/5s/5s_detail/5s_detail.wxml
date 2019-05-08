@@ -9,7 +9,7 @@
   <view class='infobox'>
     <image mode="scaleToFill" class='head-photo' src='{{fives.fivesLeadUserHeadImg}}'></image>
     <view class='name'>{{fives.fivesLeadUserName}}</view>
-    <view class='phone' bindtap='' data-phone="{{fives.fivesLeadUserPhoneNo}}">电话</view>
+    <view class='phone' bindtap='makePhoneCall' data-phone="{{fives.customerServiceTel}}">电话</view>
   </view>
 </view>
 <view class='article-box'>

@@ -3,11 +3,13 @@ const fivesSer = require('../../../apis/fives.js');
 const bannerSer = require('../../../apis/banner.js');
 const app = getApp();
 var loadFivesOver = false;
+var searchName = '';
 Page({
   data: {
     banners: [],
     fives: [],
     currentPage: 1,
+    firstLoad: true,
     indicatorDots: true,
     autoplay: true,
     interval: 3000,
@@ -33,40 +35,55 @@ Page({
       success(res) {
         const latitude = res.latitude;
         const longitude = res.longitude;
-
-        // Banner轮播图
-        bannerSer.bannerList('5S').then(banners => {
-          _this.setData({
-            banners: banners
-          });
-          // 默认加载第一页10个
-          return fivesSer.fivesList({
-            lng: longitude,
-            lat: latitude,
-            page: 1,
-            size: 10
-          });
-        }).then(fives => {
-          if (fives && fives.length > 0) {
-            _this.setData({
-              fives: fives,
-              currentPage: 2
-            });
-          } else {
-            loadFivesOver = true;
-          }
-          wx.hideLoading();
-          typeof cb === "function" && cb();
-        }).catch(err => {
-          wx.hideLoading();
-          typeof cb === "function" && cb();
-        })
+        _this.loadData(longitude, latitude, cb)
       },
       fail() {
-        wx.hideLoading();
-        typeof cb === "function" && cb();
+        _this.loadData('', '', cb)
       }
     });
+  },
+
+  loadData(longitude, latitude, cb) {
+    const _this = this;
+    // Banner轮播图
+    bannerSer.bannerList('5S').then(banners => {
+      _this.setData({
+        banners: banners
+      });
+      // 默认加载第一页10个
+      return fivesSer.fivesList({
+        lng: longitude,
+        lat: latitude,
+        name: searchName,
+        page: 1,
+        size: 10
+      });
+    }).then(fives => {
+      if (fives && fives.length > 0) {
+        _this.setData({
+          fives: fives,
+          firstLoad: false,
+          currentPage: 2
+        });
+      } else {
+        _this.setData({
+          fives: [],
+          firstLoad: false,
+          currentPage: 1
+        });
+        loadFivesOver = true;
+      }
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    }).catch(err => {
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    })
+  },
+
+  searchFives(e) {
+    searchName = e.detail.value;
+    this.loadIndexData()
   },
 
   onReachBottom() {
@@ -83,31 +100,37 @@ Page({
       success(res) {
         const latitude = res.latitude;
         const longitude = res.longitude;
-        // 加载更多5S店
-        fivesSer.fivesList({
-          lng: longitude,
-          lat: latitude,
-          page: _this.data.currentPage,
-          size: 10
-        }).then(fives => {
-          var _fives = _this.data.fives;
-          if (fives && fives.length > 0) {
-            _this.setData({
-              fives: _fives.concat(fives),
-              currentPage: _this.data.currentPage + 1
-            });
-          } else {
-            loadFivesOver = true;
-          }
-          wx.hideLoading();
-        }).catch(err => {
-          wx.hideLoading();
-        })
+        _this.loadMoreFives();
       },
       fail() {
-        wx.hideLoading();
+        _this.loadMoreFives();
       }
     });
+  },
+
+  loadMoreFives(longitude, latitude) {
+    const _this = this;
+    // 加载更多5S店
+    fivesSer.fivesList({
+      lng: longitude,
+      lat: latitude,
+      name: searchName,
+      page: _this.data.currentPage,
+      size: 10
+    }).then(fives => {
+      var _fives = _this.data.fives;
+      if (fives && fives.length > 0) {
+        _this.setData({
+          fives: _fives.concat(fives),
+          currentPage: _this.data.currentPage + 1
+        });
+      } else {
+        loadFivesOver = true;
+      }
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    })
   },
 
   makePhoneCall(e) {

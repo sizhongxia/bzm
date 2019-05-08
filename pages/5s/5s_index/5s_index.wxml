@@ -13,8 +13,8 @@
 </swiper>
 
 <view class='search-box'>
-  <input class='text' placeholder='输入5S店名称查询'></input>
-  <navigator class='map'></navigator>
+  <input class='text' confirm-type='search' bindblur='searchFives' bindconfirm='searchFives' placeholder='输入5S店名称查询'></input>
+  <navigator url='../5s_address/5s_address' class='map'></navigator>
 </view>
 
 <view style='height:20rpx; background:#f4f4f4;'></view>
@@ -28,5 +28,6 @@
     <view class='phone' catchtap='makePhoneCall' data-phone='{{item.customerServiceTel}}'>电话</view>
     <view class='map' catchtap='openLocation' data-name='{{item.fivesName}}' data-address='{{item.addrDetail}}' data-lng='{{item.addrLng}}' data-lat='{{item.addrLat}}'>导航</view>
   </navigator>
+  <view wx:if="{{!firstLoad && fives.length === 0}}">未查询到5S店信息</view>
 </view>
 
