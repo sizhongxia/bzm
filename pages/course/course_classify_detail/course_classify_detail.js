@@ -11,6 +11,9 @@ Page({
       title: '专题详情'
     });
     courseId = options.courseId;
+  },
+
+  onShow: function () {
     this.loadCourseDetail();
   },
 

@@ -56,6 +56,9 @@ Page({
       wx.showToast({
         title: '更新成功'
       });
+      setTimeout(() => {
+        wx.navigateBack({});
+      }, 1000)
     }).catch(err => {
       wx.hideLoading();
       if(err && err.message) {

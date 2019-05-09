@@ -1,7 +1,7 @@
 <view class='main-box'>
 
   <view class="info-box">
-    <image class='thumb'  mode="widthFix" src='{{course.coverPicUrl}}'></image>
+    <image class='thumb'  mode="scaleToFill" src='{{course.coverPicUrl}}'></image>
     <view class='name'>{{course.courseName}}</view>
     <view class='desc'>{{course.courseResume}}</view>
     <view class='price'>￥{{course.coursePrice}}</view>
