@@ -1,5 +1,2 @@
-<button wx:if="{{forbiddenLocation}}" open-type="openSetting" bindopensetting="onGotUserLocation">打开设置页</button>
-
-<button wx:if="{{goGotUserInfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">
-  获取用户信息
-</button>
+<button wx:if="{{forbiddenLocation}}" open-type="openSetting" bindopensetting="onGotUserLocation">点击按钮，完成位置授权</button>
+<button wx:if="{{goGotUserInfo}}" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">微信授权登录</button>

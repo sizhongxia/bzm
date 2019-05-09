@@ -149,10 +149,15 @@ Page({
                 wx.hideLoading();
                 wx.showModal({
                   title: '支付提示',
-                  content: '支付失败或您已取消',
+                  content: '支付失败或您已取消支付',
                   showCancel: false,
                   confirmText: '确定',
-                  confirmColor: '#e95410'
+                  confirmColor: '#e95410',
+                  success(res) {
+                    if (res.confirm) {
+                      wx.navigateBack();
+                    }
+                  }
                 });
               }
             })
