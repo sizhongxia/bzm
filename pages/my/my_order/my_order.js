@@ -1,75 +1,125 @@
-// pages/my/my_order/my_order.js
-Page({
 
-  /**
-   * 页面的初始数据
-   */
+const orderSer = require('../../../apis/order.js');
+const app = getApp();
+Page({
   data: {
-    index:1
+    index: 1,
+    currentPage: 1,
+    isEnd: false,
+    orders: []
   },
 
-  siwchTab:function(e){
+  onLoad: function (options) {
+    // 设置标题
+    wx.setNavigationBarTitle({
+      title: '我的订单'
+    });
+    this.loadOrders();
+  },
+
+  siwchTab: function (e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
       index: index
     })
+    this.loadOrders();
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    wx.setNavigationBarTitle({
-      title: '我的订单'
-    })
+  loadOrders(cb) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    if (this.data.index == 1) {
+      orderSer.productsList('', 1, 10).then(orderRes => {
+        const orders = orderRes.orders;
+        const isEnd = orderRes.isEnd;
+        this.setData({
+          orders: orders,
+          isEnd: isEnd,
+          currentPage: 2
+        });
+        wx.hideLoading();
+        typeof cb === "function" && cb();
+      }).catch(err => {
+        wx.hideLoading();
+        typeof cb === "function" && cb();
+      });
+    } else {
+      orderSer.coursesList('', 1, 10).then(orderRes => {
+        const orders = orderRes.orders;
+        const isEnd = orderRes.isEnd;
+        this.setData({
+          orders: orders,
+          isEnd: isEnd,
+          currentPage: 2
+        });
+        wx.hideLoading();
+        typeof cb === "function" && cb();
+      }).catch(err => {
+        wx.hideLoading();
+        typeof cb === "function" && cb();
+      });
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  onReachBottom() {
+    if (this.data.isEnd) {
+      return;
+    }
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    if (this.data.index == 1) {
+      orderSer.productsList('', this.data.currentPage, 10).then(orderRes => {
+        const orders = orderRes.orders;
+        if (orders.length > 0) {
+          const isEnd = orderRes.isEnd;
+          const _orders = this.data.orders;
+          this.setData({
+            orders: _orders.concat(orders),
+            isEnd: isEnd,
+            currentPage: this.data.currentPage + 1
+          });
+        } else {
+          this.setData({
+            isEnd: isEnd
+          });
+        }
+        wx.hideLoading();
+      }).catch(err => {
+        wx.hideLoading();
+      });
+    } else {
+      orderSer.coursesList('', this.data.currentPage, 10).then(orderRes => {
+        const orders = orderRes.orders;
+        if (orders.length > 0) {
+          const isEnd = orderRes.isEnd;
+          const _orders = this.data.orders;
+          this.setData({
+            orders: _orders.concat(orders),
+            isEnd: isEnd,
+            currentPage: this.data.currentPage + 1
+          });
+        } else {
+          this.setData({
+            isEnd: isEnd
+          });
+        }
+        wx.hideLoading();
+      }).catch(err => {
+        wx.hideLoading();
+      });
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading();
+    this.loadOrders(function () {
+      wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
+    });
   }
+
 })

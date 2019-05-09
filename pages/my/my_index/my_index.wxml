@@ -1,10 +1,10 @@
 <view class='userinfo'>
-    <image class='head-photo' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png' mode="scaleToFill"></image>
-  <view class='name'>张三</view>
+    <image class='head-photo' src='{{member.headImgUrl}}' mode="scaleToFill"></image>
+  <view class='name'>{{member.userName}}</view>
   <view class='tag'>
-    <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-1.png' mode="scaleToFill"></image>
-    <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-2.png' mode="scaleToFill"></image>
-    <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-3.png' mode="scaleToFill"></image>
+    <image wx:if='{{member.authenticationFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-1.png' mode="scaleToFill"></image>
+    <image wx:if='{{member.memberFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-2.png' mode="scaleToFill"></image>
+    <image wx:if='{{member.fivesFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-3.png' mode="scaleToFill"></image>
   </view>
   <view class='nav-box'>
       <navigator class='n1' url='../my_sell/my_sell'>分销中心
@@ -12,7 +12,7 @@
       </navigator>
       <navigator class='n2' url='../my_order/my_order'>我的订单<view class='to'></view></navigator>
       <navigator class='n3' url=''>关于我们 <view class='to'></view></navigator>
-      <navigator class='n4' >联系我们<text>4008-123-123</text> <view class='to'></view></navigator>
+      <navigator class='n4' >联系我们<text bindtap='makePhoneCall'>{{servicePhoneNo}}</text> <view class='to'></view></navigator>
   </view>
 </view>
 

@@ -5,57 +5,20 @@
 <view style='height:15rpx;'></view>
 
 <view class='list-box' wx:if="{{index == 1}}">
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>产品名称；机具产品</view>
-      <view>订单金额：12元（单价12元*1）</view>
-      <view>收件人   ：张三 （13424242424）</view>
-      <view>收件地址：北京市产品哪个区</view>
-      <view>下单时间：2019-12-12 12:12</view>
-    </view>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>产品名称；机具产品</view>
-      <view>订单金额：12元（单价12元*1）</view>
-      <view>收件人   ：张三 （13424242424）</view>
-      <view>收件地址：北京市产品哪个区</view>
-      <view>下单时间：2019-12-12 12:12</view>
-    </view>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>产品名称；机具产品</view>
-      <view>订单金额：12元（单价12元*1）</view>
-      <view>收件人   ：张三 （13424242424）</view>
-      <view>收件地址：北京市产品哪个区</view>
-      <view>下单时间：2019-12-12 12:12</view>
+    <view wx:for="{{orders}}" wx:key="orderId" class='list-item'>
+      <view>订单编号：{{item.orderNo}}</view>
+      <view>产品名称；{{item.productName}}</view>
+      <view>订单金额：{{item.payPrice}}元（单价{{item.productPrice}}元*{{item.productNum}}）</view>
+      <view>　收件人：{{item.recipientName}} （{{item.recipientPhoneNo}}）</view>
+      <view>收件地址：{{item.recipientAddrDetail}}</view>
+      <view>下单时间：{{item.payAt}}</view>
     </view>
 </view>
-
-
 <view class='list-box' wx:else>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>课程名称：培训课程</view>
-      <view>订单金额：12元</view>
-      <view>下单时间：2019-12-12 12:1</view>
+    <view wx:for="{{orders}}" wx:key="orderId" class='list-item'>
+      <view>订单编号：{{item.orderNo}}</view>
+      <view>课程名称：{{item.courseName}}</view>
+      <view>订单金额：{{item.payPrice}}元</view>
+      <view>下单时间：{{item.payAt}}</view>
     </view>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>课程名称：培训课程</view>
-      <view>订单金额：12元</view>
-      <view>下单时间：2019-12-12 12:1</view>
-    </view>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>课程名称：培训课程</view>
-      <view>订单金额：12元</view>
-      <view>下单时间：2019-12-12 12:1</view>
-    </view>
-    <view class='list-item'>
-      <view>订单编号：20179827282543</view>
-      <view>课程名称：培训课程</view>
-      <view>订单金额：12元</view>
-      <view>下单时间：2019-12-12 12:1</view>
-    </view>
-
 </view>

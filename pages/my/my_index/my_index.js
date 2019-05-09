@@ -1,68 +1,58 @@
-// pages/my/my_index/my_index.js
+
+const memberSer = require('../../../apis/member.js');
+const sysSer = require('../../../apis/sys.js');
+const app = getApp();
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    member: {},
+    servicePhoneNo: ''
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
+    // 设置标题
     wx.setNavigationBarTitle({
       title: '我的'
     })
+    this.loadMemberInfo();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  loadMemberInfo(cb) {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    sysSer.systemInfo().then(sysInfo => {
+      this.setData({
+        servicePhoneNo: sysInfo.servicePhone
+      });
+      return memberSer.userInfo();
+    }).then(member => {
+      this.setData({
+        member: member
+      });
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    }).catch(err => {
+      wx.hideLoading();
+      typeof cb === "function" && cb();
+    })
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  makePhoneCall(e) {
+    const servicePhoneNo = this.data.servicePhoneNo;
+    if (!!servicePhoneNo) {
+      wx.makePhoneCall({
+        phoneNumber: servicePhoneNo
+      });
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  onPullDownRefresh() {
+    wx.showNavigationBarLoading();
+    this.loadMemberInfo(function () {
+      wx.stopPullDownRefresh();
+      wx.hideNavigationBarLoading();
+    });
   }
+
 })
