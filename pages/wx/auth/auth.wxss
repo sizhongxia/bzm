@@ -1,1 +1,17 @@
-/* pages/wx/auth/auth.wxss */
+.main-box {
+  width: 750rpx;
+  height: 100%;
+  text-align: center;
+}
+
+.toSettingBtn {
+  width: 320rpx;
+  background-color: #eb6100;
+  color: #fff;
+  border-radius: 0;
+  font-size: 32rpx;
+  padding: 10rpx 0;
+}
+.toSettingBtn::after {
+  border-radius: 0;
+}

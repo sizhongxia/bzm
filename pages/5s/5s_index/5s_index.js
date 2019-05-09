@@ -12,7 +12,7 @@ Page({
     firstLoad: true,
     indicatorDots: true,
     autoplay: true,
-    interval: 3000,
+    interval: 6000,
     duration: 1000
   },
 
@@ -84,6 +84,17 @@ Page({
   searchFives(e) {
     searchName = e.detail.value;
     this.loadIndexData()
+  },
+
+  toBannerDetail(e) {
+    wx.navigateTo({
+      url: '/pages/wx/webview/webview?url=' + e.currentTarget.dataset.url,
+      complete() {
+        bannerSer.visitBanner(e.currentTarget.dataset.id).then(res => {
+        }).catch(err => {
+        });
+      }
+    })
   },
 
   onReachBottom() {

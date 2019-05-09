@@ -6,6 +6,7 @@ Page({
   data: {
     member: {},
     servicePhoneNo: '',
+    aboutusUrl: '',
     isMember: false
   },
 
@@ -24,7 +25,8 @@ Page({
     });
     sysSer.systemInfo().then(sysInfo => {
       this.setData({
-        servicePhoneNo: sysInfo.servicePhone
+        servicePhoneNo: sysInfo.servicePhone,
+        aboutusUrl: sysInfo.aboutUsContent
       });
       return memberSer.userInfo();
     }).then(member => {

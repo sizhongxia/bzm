@@ -1,9 +1,0 @@
-
-<view style='height:20rpx; background:#f4f4f4;'></view>
-<view class='ctitle-box'>
-  <view class='name'>关于我们</view>
-</view>
-
-<view class='article-box' style='margin-bottom: 100rpx;'>
-  <view class='text' style='margin-bottom:30rpx;'>{{aboutus}}</view>
-</view>

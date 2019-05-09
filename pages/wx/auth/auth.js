@@ -7,6 +7,10 @@ Page({
     forbiddenLocation: false
   },
   onShow() {
+    // 设置标题
+    wx.setNavigationBarTitle({
+      title: '权限设置'
+    })
     this.showAuthLocationModel()
   },
   showAuthLocationModel() {
@@ -17,6 +21,9 @@ Page({
           wx.authorize({
             scope: 'scope.userLocation',
             success() {
+              wx.setNavigationBarTitle({
+                title: '微信登陆'
+              });
               _this.setData({
                 goGotUserInfo: true
               });
@@ -28,6 +35,9 @@ Page({
             }
           })
         } else {
+          wx.setNavigationBarTitle({
+            title: '微信登陆'
+          });
           _this.setData({
             goGotUserInfo: true
           });

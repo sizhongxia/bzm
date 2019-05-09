@@ -13,8 +13,8 @@
         <view class='to'></view>
       </navigator>
       <navigator hover-class="none" class='n2' url='../my_order/my_order'>我的订单<view class='to'></view></navigator>
-      <navigator hover-class="none" class='n3' url='../my_aboutus/my_aboutus'>关于我们 <view class='to'></view></navigator>
-      <navigator hover-class="none" class='n4' >联系我们<text bindtap='makePhoneCall'>{{servicePhoneNo}}</text> <view class='to'></view></navigator>
+      <navigator wx:if="{{aboutusUrl}}" hover-class="none" class='n3' url='/pages/wx/webview/webview?url={{aboutusUrl}}'>关于我们 <view class='to'></view></navigator>
+      <navigator wx:if="{{servicePhoneNo}}" hover-class="none" class='n4' >联系我们<text bindtap='makePhoneCall'>{{servicePhoneNo}}</text> <view class='to'></view></navigator>
   </view>
 </view>
 

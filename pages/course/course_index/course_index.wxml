@@ -7,7 +7,7 @@
 >
   <block wx:for="{{banners}}" wx:key="resId">
     <swiper-item >
-      <image src="{{item.picUrl}}" mode="widthFix" class="slide-image" style='width:100%'/>
+      <image bindtap='toBannerDetail' data-url="{{item.linkUrl}}" data-id="{{item.resId}}" src="{{item.picUrl}}" mode="widthFix" class="slide-image" style='width:100%'/>
     </swiper-item>
   </block>
 </swiper>
@@ -38,4 +38,17 @@
   </navigator>
   <view style="clear:both;height:0"></view>
 </view>
+</block>
+
+<block wx:if="{{isFirst}}">
+  <view class='fisrt-container animation-show'>
+    <view style='width: 590rpx;height: 560rpx;background: #fefefe;text-align:center;border-radius: 12rpx'>
+      <image style='width: 200rpx;height: 230rpx;margin-top: 52rpx;' src='/img/bzm.png'></image>
+      <view style='font-size: 32rpx;font-weight: 100;padding: 20rpx 0 0'>亲爱的用户，您好！</view>
+      <view style='font-size: 32rpx;font-weight: 100;padding: 2rpx 0 26rpx'>初次使用小程序请先登录</view>
+      <navigator url='/pages/wx/auth/auth' open-type='redirect' hover-class="none">
+        <button class="toLoginBtn">微信登录</button>
+      </navigator>
+    </view>
+  </view>
 </block>

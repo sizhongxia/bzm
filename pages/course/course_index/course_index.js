@@ -13,8 +13,9 @@ Page({
     currentPage: 1,
     indicatorDots: true,
     autoplay: true,
-    interval: 3000,
-    duration: 1000
+    interval: 6000,
+    duration: 1000,
+    isFirst: false
   },
 
   onLoad: function (options) {
@@ -39,6 +40,7 @@ Page({
     wx.setNavigationBarTitle({
       title: '课程'
     });
+    wx.showTabBar({});
     util.login().then(code => {
       return authSer.login({
         code: code
@@ -48,20 +50,24 @@ Page({
       wx.hideLoading();
       this.loadIndexData();
     }).catch(err => {
+      // wx.redirectTo({
+      //   url: '/pages/wx/auth/auth',
+      //   success() {
+      //     wx.hideLoading();
+      //   }
+      // });
+      this.setData({
+        isFirst: true
+      });
+      wx.hideTabBar({});
       wx.hideLoading();
-      if (err && err.message) {
-        wx.showToast({
-          title: err.message,
-          icon: 'none',
-          success: () => {
-            setTimeout(() => {
-              wx.redirectTo({
-                url: '/pages/wx/auth/auth'
-              });
-            }, 1500)
-          }
-        });
-      }
+    })
+
+    // Banner轮播图
+    bannerSer.bannerList('KC').then(banners => {
+      this.setData({
+        banners: banners
+      });
     })
   },
 
@@ -119,6 +125,17 @@ Page({
   //   }).catch(err => {})
   // },
 
+  toBannerDetail(e) {
+    wx.navigateTo({
+      url: '/pages/wx/webview/webview?url=' + e.currentTarget.dataset.url,
+      complete() {
+        bannerSer.visitBanner(e.currentTarget.dataset.id).then(res => {
+        }).catch(err => {
+        });
+      }
+    })
+  },
+
   onReachBottom() {
     if (loadCoursesOver) {
       return;
@@ -144,6 +161,10 @@ Page({
   },
 
   onPullDownRefresh() {
+    if (this.data.isFirst) {
+      wx.stopPullDownRefresh();
+      return;
+    }
     wx.showNavigationBarLoading();
     this.loadIndexData(function () {
       wx.stopPullDownRefresh();

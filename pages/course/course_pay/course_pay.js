@@ -153,10 +153,8 @@ Page({
                   showCancel: false,
                   confirmText: '确定',
                   confirmColor: '#e95410',
-                  success(res) {
-                    if (res.confirm) {
-                      wx.navigateBack();
-                    }
+                  complete() {
+                    wx.navigateBack();
                   }
                 });
               }
