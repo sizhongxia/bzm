@@ -12,12 +12,14 @@
     "pages/tool/tool_detail/tool_detail",
     "pages/tool/tool_pay/tool_pay",
     "pages/my/my_index/my_index",
+    "pages/my/my_aboutus/my_aboutus",
     "pages/my/my_order/my_order",
     "pages/my/my_sell/my_sell",
     "pages/my/my_set/my_set",
     "pages/my/my_set_edit/my_set_edit",
     "pages/my/my_qrcode/my_qrcode",
-    "pages/wx/auth/auth"
+    "pages/wx/auth/auth",
+    "pages/wx/webview/webview"
   ],
   "window": {
     "backgroundTextStyle": "dark",
@@ -59,6 +61,9 @@
     "scope.userLocation": {
       "desc": "位置信息将被用来计算您到商户的距离，以便为您提供更好的服务。"
     }
+  },
+  "networkTimeout": {
+    "request": 60000
   },
   "sitemapLocation": "sitemap.json"
 }

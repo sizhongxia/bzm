@@ -1,26 +1,27 @@
 <view class='main-box'>
 
-<view class="info-box">
-  <image class='thumb'  mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-5.png'></image>
-  <view class='name'>一级分类</view>
-  <view class='desc'>分类描分分类描述类描述述</view>
-  <view class='price'>￥12.00</view>
+  <view class="info-box">
+    <image class='thumb'  mode="widthFix" src='{{course.coverPicUrl}}'></image>
+    <view class='name'>{{course.courseName}}</view>
+    <view class='desc'>{{course.courseResume}}</view>
+    <view class='price'>￥{{course.coursePrice}}</view>
+  </view>
+
+  <view class='client-box'>
+    <view class='client-title'>客户信息</view>
+    <view class='client-name'>姓名：{{orderModel.userName}}</view>
+    <view class='client-name'>手机号：{{orderModel.phoneNo}}</view>
+  </view>
+
+  <view class='explain'>
+    <view>购买成功后您可以成为会员，您将拥有如下权益：</view>
+    <view>1、你可免费参与线下的课程，无需付费；</view>
+    <view>2、你可推荐会员，推荐成功后可享受奖励；</view>
+  </view>
+
+  <navigator hover-class="none" url='../../wx/webview/webview?url={{ruleUrl}}'>
+    <view class='rulse'>奖励规则</view>
+  </navigator>
 </view>
 
-<view class='client-box'>
-<view class='client-title'>客户信息</view>
-<view class='client-name'>姓名：张三</view>
-<view class='client-name'>手机号：13424242424</view>
-</view>
-
-<view class='explain'>
-  <view>购买成功后您可以成为会员，您将拥有如下权益：</view>
-  <view>1、你可免费参与线下的课程，无需付费；</view>
-  <view>2、你可推荐会员，推荐成功后可享受奖励；</view>
-</view>
-
-<view class='rulse'>奖励规则</view>
-
-</view>
-
-<button class='pay-bnt'>立即支付</button>
+<button wx:if="{{course.resId && !course.learning}}" class='pay-bnt' bindtap='toBuy' disabled='{{paying}}' loading='{{paying}}'>立即支付</button>

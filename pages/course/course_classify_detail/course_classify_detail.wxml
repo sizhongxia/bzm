@@ -1,6 +1,6 @@
-<image  mode="scaleToFill" class='top_thumb' src='{{course.coverPicUrl}}'></image>
+<image mode="scaleToFill" class='top_thumb' src='{{course.coverPicUrl}}'></image>
 
-<view class='title-box'>
+<view class='title-box {{course.learning?"title-box-learning":""}}'>
   <view class='name'>{{course.courseName}}</view>
   <view class='desc'>{{course.courseResume}}</view>
 </view>
@@ -19,21 +19,23 @@
   <view class='desc'>({{course.courseLs.length}})</view>
 </view>
 <view class='course-box'>
-  <navigator url='../course_detail/course_detail?courseId={{item.resId}}' wx:for="{{course.courseLs}}" wx:key="resId">
+  <navigator hover-class="none" url='../course_detail/course_detail?courseId={{item.resId}}' wx:for="{{course.courseLs}}" wx:key="resId">
     <image  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
     <view class='title'>{{item.itemName}}</view>
   </navigator>
-   
   <view style="clear:both;height:0"></view>
 </view>
-
 
 <view style='height:20rpx; background:#f4f4f4;'></view>
 <view class='ctitle-box'>
   <view class='name'>课程说明</view>
 </view>
 
-<view class='article-box'>
-  <view class='text' style='margin-bottom:30rpx;' wx:if="{{course.courseContent}}">{{course.courseContent}}</view>
+<view class='article-box' style='margin-bottom: {{course.learning?0:100}}rpx;'>
+  <view class='text' style='margin-bottom:30rpx;' wx:if="{{course.courseContent}}">{{course.courseContent}} </view>
   <image wx:for="{{course.pisLs}}" wx:key="resId" class='thumb' mode="widthFix" style='display:flex;' src='{{item.picUrl}}'></image>
 </view>
+
+<navigator wx:if="{{!course.learning}}" hover-class="none" url='../course_pay/course_pay?courseId={{course.resId}}'>
+  <text class='pay-bnt'>立即购买</text>
+</navigator>

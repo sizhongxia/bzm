@@ -5,11 +5,11 @@ module.exports = {
   userInfo: () => {
     return util.post('/wxmp/api/member/userInfo', {});
   },
-  updateAuthenticationInfo: (realName, phoneNo) => {
-    return util.post('/wxmp/api/member/updateAuthenticationInfo', {
-      realName: realName,
-      phoneNo: phoneNo
-    });
+  getAuthenticationInfo: () => {
+    return util.post('/wxmp/api/member/getAuthenticationInfo', {});
+  },
+  updateAuthenticationInfo: (data) => {
+    return util.post('/wxmp/api/member/updateAuthenticationInfo', data);
   },
   myExpandMembers: (page, size) => {
     return util.post('/wxmp/api/member/myExpandMembers', {

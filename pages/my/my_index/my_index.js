@@ -5,7 +5,8 @@ const app = getApp();
 Page({
   data: {
     member: {},
-    servicePhoneNo: ''
+    servicePhoneNo: '',
+    isMember: false
   },
 
   onLoad: function (options) {

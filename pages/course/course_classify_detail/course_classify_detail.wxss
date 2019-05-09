@@ -24,9 +24,10 @@ page{ background: #f4f4f4;}
   background-size:39rpx 44rpx; 
 }
 
-.title-box{ width: 750rpx; height: 138rpx; position: relative; 
- background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-detail-2.png)  587rpx 20rpx no-repeat #fff;
- background-size:134rpx 111rpx; 
+.title-box{ width: 750rpx; height: 138rpx; position: relative;}
+.title-box-learning {
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-detail-2.png)  587rpx 20rpx no-repeat #fff;
+  background-size:134rpx 111rpx; 
 }
 
 .title-box .name{ font-size: 34rpx; color: #333333;  line-height: 1; position: absolute; left: 30rpx; top: 40rpx;}
@@ -60,3 +61,5 @@ white-space:nowrap;
 .article-box .text{ font-size: 30rpx; color: #333333; line-height: 1.5; }
 
 .article-box .thumb{ width: 100%;}
+
+.pay-bnt{ width: 750rpx; height: 96rpx; background: #ff7600; color: #fff; text-align: center; line-height: 96rpx; font-size: 36rpx; border-radius: 0; position: fixed; bottom: 0;}

@@ -1,5 +1,5 @@
-const baseUrl = 'https://api.bzm365.com';
-// const baseUrl = 'http://192.168.1.105:9091';
+// const baseUrl = 'https://api.bzm365.com';
+const baseUrl = 'http://192.168.1.105:9091';
 // const baseUrl = 'http://192.168.31.144:9091';
 function request(url, data = {}, method = "POST") {
   return new Promise(function (resolve, reject) {

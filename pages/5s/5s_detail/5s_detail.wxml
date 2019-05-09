@@ -20,6 +20,7 @@
     longitude="{{fives.addrLng}}"
     latitude="{{fives.addrLat}}"
     markers="{{markers}}"
+    show-location="{{true}}"
     scale="18"
     style="width: 100%; height: 320rpx;"
   ></map>

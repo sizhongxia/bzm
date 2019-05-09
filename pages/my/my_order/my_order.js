@@ -20,8 +20,9 @@ Page({
   siwchTab: function (e) {
     var index = e.currentTarget.dataset.index;
     this.setData({
-      index: index
-    })
+      index: index,
+      orders: []
+    });
     this.loadOrders();
   },
 

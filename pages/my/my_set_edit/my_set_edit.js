@@ -1,68 +1,69 @@
-// pages/my/my_set_edit/my_set_edit.js
+
+const memberSer = require('../../../apis/member.js')
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    member: {
+      realName: '',
+      phoneNo: ''
+    }
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     wx.setNavigationBarTitle({
       title: '完善资料'
-    })
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    memberSer.getAuthenticationInfo().then(res => {
+      wx.hideLoading();
+      if (res.isMember) {
+        const member = this.data.member;
+        member.realName = res.userName;
+        member.phoneNo = res.phoneNo;
+        this.setData({
+          member: member
+        });
+      }
+    }).catch(err => {
+      wx.hideLoading();
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  inputRealName(e) {
+    const member = this.data.member;
+    member.realName = e.detail.value;
+    this.setData({
+      member: member
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  inputPhoneNo(e) {
+    const member = this.data.member;
+    member.phoneNo = e.detail.value;
+    this.setData({
+      member: member
+    });
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  toSubmitForm() {
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    memberSer.updateAuthenticationInfo(this.data.member).then(res => {
+      wx.hideLoading();
+      wx.showToast({
+        title: '更新成功'
+      });
+    }).catch(err => {
+      wx.hideLoading();
+      if(err && err.message) {
+        wx.showToast({
+          title: err.message,
+          icon: 'none'
+        });
+      }
+    });
   }
 })

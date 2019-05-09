@@ -7,6 +7,7 @@
 <view class='list-box' wx:if="{{index == 1}}">
     <view wx:for="{{orders}}" wx:key="orderId" class='list-item'>
       <view>订单编号：{{item.orderNo}}</view>
+      <view>订单状态：{{item.orderStatus}}</view>
       <view>产品名称；{{item.productName}}</view>
       <view>订单金额：{{item.payPrice}}元（单价{{item.productPrice}}元*{{item.productNum}}）</view>
       <view>　收件人：{{item.recipientName}} （{{item.recipientPhoneNo}}）</view>

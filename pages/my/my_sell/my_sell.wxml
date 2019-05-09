@@ -1,40 +1,18 @@
 <view style="height:16rpx;"></view>
 
 <view class='top-box'>
-  <view class='title'>累计招募12名一级伙伴，其共招募了120名伙伴</view>
-  <view class='oprate oprate-1'>查看<text>奖励规则</text></view>
+  <view class='title'>累计招募{{level1Num}}名一级伙伴，其共招募了{{level2Num}}名伙伴</view>
+  <navigator url='../../wx/webview/webview?url={{ruleUrl}}'>
+    <view class='oprate oprate-1'>查看<text>奖励规则</text></view>
+  </navigator>
   <navigator url='../my_qrcode/my_qrcode' class='oprate oprate-2'>分享<text>推广二维码</text></navigator>
 </view>
 <view style="height:10rpx;"></view>
 <view class='list-box'>
-    <view class='list-item'>
-      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'  mode="scaleToFill"  class='head-photo'></image>
-      <view class='name'>姓名</view>
-      <view class='time'>于2019-12-12 12:12创建</view>
-      <view class='num'>发展12名伙伴</view>
-    </view>
-     <view class='list-item'>
-      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'  mode="scaleToFill"  class='head-photo'></image>
-      <view class='name'>姓名</view>
-      <view class='time'>于2019-12-12 12:12创建</view>
-      <view class='num'>发展12名伙伴</view>
-    </view>
-     <view class='list-item'>
-      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'  mode="scaleToFill"  class='head-photo'></image>
-      <view class='name'>姓名</view>
-      <view class='time'>于2019-12-12 12:12创建</view>
-      <view class='num'>发展12名伙伴</view>
-    </view>
-     <view class='list-item'>
-      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'  mode="scaleToFill"  class='head-photo'></image>
-      <view class='name'>姓名</view>
-      <view class='time'>于2019-12-12 12:12创建</view>
-      <view class='num'>发展12名伙伴</view>
-    </view>
-     <view class='list-item'>
-      <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-2.png'  mode="scaleToFill"  class='head-photo'></image>
-      <view class='name'>姓名</view>
-      <view class='time'>于2019-12-12 12:12创建</view>
-      <view class='num'>发展12名伙伴</view>
-    </view>
+  <view class='list-item' wx:for="{{members}}" wx:key="userId">
+    <image src='{{item.headImgUrl}}'  mode="scaleToFill"  class='head-photo'></image>
+    <view class='name'>{{item.nickName}}</view>
+    <view class='time'>于{{item.memberAt}}创建</view>
+    <view class='num'>发展{{item.level1Num}}名伙伴</view>
+  </view>
 </view>
