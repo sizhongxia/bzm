@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/course/course_index/course_index",
+    "pages/course/course_share/course_share",
     "pages/course/course_classify_detail/course_classify_detail",
     "pages/course/course_detail/course_detail",
     "pages/common/pay_success/pay_success",

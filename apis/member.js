@@ -22,5 +22,13 @@ module.exports = {
       nickName: nickName,
       avatarUrl: avatarUrl
     });
+  },
+  userShareInfo: () => {
+    return util.post('/wxmp/api/member/userShareInfo', {});
+  },
+  courseShareInfo: (courseId) => {
+    return util.post('/wxmp/api/member/courseShareInfo', {
+      courseId: courseId
+    });
   }
 }

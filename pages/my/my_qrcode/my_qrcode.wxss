@@ -7,7 +7,7 @@ page{ background: #f4f4f4;}
 .userinfo .head-photo{ display: block; width: 60rpx; height: 60rpx; border-radius: 100%; float: left;}
 .userinfo .title{ float: left; font-size: 30rpx; color: #333333; line-height: 60rpx; padding-left: 20rpx;}
 
-.banenr{ width: 690rpx; height: 600rpx; position: relative;}
+.banenr{ width: 690rpx;position: relative;}
 
 .banner-bnt{ position: absolute; top: 50%; margin-top: -57rpx; width: 60rpx; height: 114rpx; background: rgba(0, 0,0, 0.5);}
 .banner-bnt image{ display: block; width: 60rpx; height: 114rpx;}
