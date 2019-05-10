@@ -152,8 +152,8 @@ Page({
 
   openLocation(e) {
     wx.openLocation({
-      latitude: e.currentTarget.dataset.lat,
-      longitude: e.currentTarget.dataset.lng,
+      latitude: Number(e.currentTarget.dataset.lat),
+      longitude: Number(e.currentTarget.dataset.lng),
       name: e.currentTarget.dataset.name,
       address: e.currentTarget.dataset.address
     })

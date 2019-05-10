@@ -21,15 +21,15 @@ background: url('https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-7.png') 
   border-bottom: 1rpx solid #eeeeee;
 }
 
-.item-box .thumb{ display: block; width: 210rpx; height: 210rpx; border-radius: 10rpx; position: absolute; top: 20rpx; left: 30rpx;}
-.item-box .name{ font-size: 34rpx; color: #333333; font-weight: bold; position: absolute; top: 33rpx; line-height: 1; left: 270rpx;}
+.thumb{ display: block; width: 210rpx; height: 210rpx; border-radius: 10rpx; position: absolute; top: 20rpx; left: 30rpx;}
+.name{ font-size: 34rpx; color: #333333; font-weight: bold; position: absolute; top: 33rpx; line-height: 1; left: 270rpx;}
 
-.item-box .address{ font-size: 26rpx; color: #999999; position: absolute; top: 83rpx; line-height: 1.2; left: 270rpx; }
+.address{ font-size: 26rpx; color: #999999; position: absolute; top: 83rpx; line-height: 1.2; left: 270rpx; }
 
 
-.item-box .buy{  display: block; width: 140rpx; height: 50rpx; border: 1rpx solid #e95410; border-radius: 30rpx; position: absolute; right: 30rpx; top: 170rpx; font-size: 26rpx; color: #e95410; line-height: 50rpx;  text-align:center;
+.buy{  display: block; width: 140rpx; height: 50rpx; border: 1rpx solid #e95410; border-radius: 30rpx; position: absolute; right: 30rpx; top: 170rpx; font-size: 26rpx; color: #e95410; line-height: 50rpx;  text-align:center;
 }
 
-.item-box .price{ color: #e95410; font-size: 30rpx; line-height: 1; position: absolute; top: 184rpx; left: 270rpx;}
+.price{ color: #e95410; font-size: 30rpx; line-height: 1; position: absolute; top: 184rpx; left: 270rpx;}
 
 

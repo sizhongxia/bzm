@@ -3,7 +3,7 @@
 
   <view class='item-box' wx:for="{{products}}" wx:key="resId">
     <navigator url='../tool_detail/tool_detail?productId={{item.resId}}' hover-class="none">
-      <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
+      <image class='thumb'  mode="aspectFit" src='{{item.coverPicUrl}}'></image>
       <view class='name'>{{item.productName}}</view>
       <view class='address'>{{item.productResume}}</view>
       <view class='price'>¥{{item.productPriceTxt}}</view>

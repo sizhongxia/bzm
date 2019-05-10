@@ -50,3 +50,8 @@ background-size:28rpx;
 .article-box .text{ font-size: 30rpx; color: #333333; line-height: 1.5; }
 
 .article-box .thumb{ width: 100%;}
+
+.map{  display: block; width: 120rpx; height: 50rpx; border: 1rpx solid #e95410; border-radius: 30rpx;  font-size: 26rpx; color: #e95410; line-height: 50rpx; text-indent: 50rpx;
+background: url('https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-4.png') 14rpx center no-repeat;
+background-size:28rpx; 
+}

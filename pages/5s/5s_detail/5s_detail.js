@@ -67,6 +67,15 @@ Page({
     })
   },
 
+  openLocation(e) {
+    wx.openLocation({
+      latitude: Number(e.currentTarget.dataset.lat),
+      longitude: Number(e.currentTarget.dataset.lng),
+      name: e.currentTarget.dataset.name,
+      address: e.currentTarget.dataset.address
+    })
+  },
+
   onPullDownRefresh() {
     wx.showNavigationBarLoading();
     this.loadFivesDetail(function () {
