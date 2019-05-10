@@ -15,7 +15,7 @@
   current="{{swiper.current}}"
   class='index_banner'
 >
-  <block wx:for="{{orders}}" wx:key="courseId">
+  <block wx:for="{{orders}}" wx:key="orderId">
     <swiper-item >
       <image src="{{item.coverPicUrl}}" mode="widthFix" class="slide-image" style='width:100%;'/>
     </swiper-item>
@@ -27,8 +27,8 @@
     </view>
     <view class='ctitle'>他们都在这里学习</view>
     <view class='userlist'>
-       <image wx:for="{{headPics}}" src='{{item}}' mode="scaleToFill" class='photo'></image>
-       <image wx:if="{{headPics.length === 13}}" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_14.png' mode="scaleToFill" class='photo'></image>
+       <image wx:for="{{headPics}}" wx:key='userId' src='{{item.headImgUrl}}' mode="scaleToFill" class='photo' style='border-radius: 100%;'></image>
+       <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_14.png' mode="scaleToFill" class='photo'></image>
        <view style="clear:both;height:0"></view>
     </view>
 

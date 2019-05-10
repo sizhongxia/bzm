@@ -2,10 +2,6 @@ const memberSer = require('../../../apis/member.js');
 const app = getApp();
 
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
     orders: [],
     member: {},
@@ -18,7 +14,6 @@ Page({
       duration: 1000,
       current: 0
     }
-
   },
 
   onLoad: function(options) {
@@ -42,7 +37,7 @@ Page({
         this.setData({
           orders: res.orders
         });
-        memberSer.courseShareInfo(res.orders[0].courseId).then(res => {
+        memberSer.courseShareInfo(res.orders[0].orderId).then(res => {
           this.setData({
             headPics: res.headPics,
             courseQrUrl: res.courseQrUrl
@@ -58,19 +53,45 @@ Page({
   prevImg: function() {
     var swiper = this.data.swiper;
     var current = swiper.current;
-    swiper.current = current > 0 ? current - 1 : swiper.imgUrls.length - 1;
+    swiper.current = current > 0 ? current - 1 : this.data.orders.length - 1;
     this.setData({
       swiper: swiper,
-    })
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    memberSer.courseShareInfo(this.data.orders[swiper.current].orderId).then(res => {
+      this.setData({
+        headPics: res.headPics,
+        courseQrUrl: res.courseQrUrl
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    });
   },
 
   nextImg: function() {
     var swiper = this.data.swiper;
     var current = swiper.current;
-    swiper.current = current < (swiper.imgUrls.length - 1) ? current + 1 : 0;
+    swiper.current = current < (this.data.orders.length - 1) ? current + 1 : 0;
     this.setData({
       swiper: swiper,
-    })
+    });
+    wx.showLoading({
+      title: '请稍后...',
+      mask: true
+    });
+    memberSer.courseShareInfo(this.data.orders[swiper.current].orderId).then(res => {
+      this.setData({
+        headPics: res.headPics,
+        courseQrUrl: res.courseQrUrl
+      });
+      wx.hideLoading();
+    }).catch(err => {
+      wx.hideLoading();
+    });
   },
 
 })

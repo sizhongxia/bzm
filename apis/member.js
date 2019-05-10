@@ -26,9 +26,9 @@ module.exports = {
   userShareInfo: () => {
     return util.post('/wxmp/api/member/userShareInfo', {});
   },
-  courseShareInfo: (courseId) => {
+  courseShareInfo: (orderId) => {
     return util.post('/wxmp/api/member/courseShareInfo', {
-      courseId: courseId
+      orderId: orderId
     });
   }
 }
