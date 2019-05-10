@@ -1,4 +1,5 @@
 const fivesSer = require('../../../apis/fives.js')
+const app = getApp();
 var fivesId = "";
 Page({
 
@@ -20,26 +21,15 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    const _this = this;
-    wx.getLocation({
-      type: 'gcj02',
-      success(res) {
-        const latitude = res.latitude;
-        const longitude = res.longitude;
-        _this.loadDetail(longitude, latitude, cb);
-      },
-      fail() {
-        _this.loadDetail('', '', cb);
-      }
-    });
+    this.loadDetail(cb);
   },
 
-  loadDetail(longitude, latitude, cb) {
+  loadDetail(cb) {
     const _this = this;
     fivesSer.fivesDetail({
       resId: fivesId,
-      lng: longitude,
-      lat: latitude
+      lng: app.globalData.u_longitude,
+      lat: app.globalData.u_latitude
     }).then(fives => {
       const marker = {
         iconPath: '/img/location.png',
@@ -77,6 +67,13 @@ Page({
   },
 
   onPullDownRefresh() {
+    wx.getLocation({
+      type: 'gcj02',
+      success(res) {
+        app.globalData.u_latitude = res.latitude;
+        app.globalData.u_longitude = res.longitude;
+      }
+    });
     wx.showNavigationBarLoading();
     this.loadFivesDetail(function () {
       wx.stopPullDownRefresh();

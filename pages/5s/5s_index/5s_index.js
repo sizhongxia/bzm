@@ -29,21 +29,17 @@ Page({
       title: '请稍后...',
       mask: true
     });
-    const _this = this;
     wx.getLocation({
       type: 'gcj02',
       success(res) {
-        const latitude = res.latitude;
-        const longitude = res.longitude;
-        _this.loadData(longitude, latitude, cb)
-      },
-      fail() {
-        _this.loadData('', '', cb)
+        app.globalData.u_latitude = res.latitude;
+        app.globalData.u_longitude = res.longitude;
       }
     });
+    this.loadData(cb)
   },
 
-  loadData(longitude, latitude, cb) {
+  loadData(cb) {
     const _this = this;
     // Banner轮播图
     bannerSer.bannerList('5S').then(banners => {
@@ -52,8 +48,8 @@ Page({
       });
       // 默认加载第一页10个
       return fivesSer.fivesList({
-        lng: longitude,
-        lat: latitude,
+        lng: app.globalData.u_longitude,
+        lat: app.globalData.u_latitude,
         name: searchName,
         page: 1,
         size: 10

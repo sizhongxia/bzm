@@ -1,1 +1,55 @@
-/* pages/course/course_share/course_share.wxss */
+page{ background: #f4f4f4;}
+
+.main-box{ background: #fff; width: 690rpx; margin: 0 auto; border-radius: 10rpx;
+  box-shadow: 0 0 10px #eaeaea;
+}
+.userinfo{ height: 60rpx; padding: 15rpx 30rpx;}
+.userinfo .head-photo{ display: block; width: 60rpx; height: 60rpx; border-radius: 100%; float: left;}
+.userinfo .title{ float: left; font-size: 30rpx; color: #333333; line-height: 60rpx; padding-left: 20rpx;}
+
+.banenr{ width: 690rpx;position: relative;}
+
+.banner-bnt{ position: absolute; top: 50%; margin-top: -57rpx; width: 60rpx; height: 114rpx; background: rgba(0, 0,0, 0.5);}
+.banner-bnt image{ display: block; width: 60rpx; height: 114rpx;}
+.banenr .prev{ left: 0;}
+.banenr .next{ right: 0;}
+
+.ctitle{ font-size: 30rpx; color: #333333; line-height: 1; text-indent: 28rpx; padding: 30rpx 0;}
+.userlist { padding: 0 15rpx;
+   padding-bottom: 40rpx;
+}
+.userlist image{ display: block; width: 70rpx; height: 70rpx; float: left; margin: 10rpx 12rpx;}
+
+
+.qrcode-box{ width: 630rpx; height: 180rpx; margin: 0 auto;  border-top: 1rpx solid #dddddd; padding-top: 30rpx;}
+.qrcode-box .qrcode{ display: block; width: 146rpx; height: 146rpx; float: left;}
+
+
+.tag-box{ height: 140rpx; width: 430rpx; background: #fff; float: right; padding-top: 20rpx;}
+.tag-box view{ float: left; width: 150rpx; height: 40rpx; text-align: center; padding-left: 56rpx; font-size: 26rpx; color: #999999; line-height: 1;}
+.tag-box .tag-1{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-1.png) left center  no-repeat;
+  background-size:40rpx 44rpx;  margin-bottom: 36rpx;
+}
+
+.tag-box .tag-2{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-2.png) left center  no-repeat;
+  background-size:39rpx 44rpx; margin-bottom: 36rpx;
+}
+
+.tag-box .tag-3{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-3.png) left center no-repeat;
+  background-size:40rpx 44rpx; 
+}
+
+.tag-box .tag-4{
+  background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/course-4.png) left center  no-repeat;
+  background-size:39rpx 44rpx; 
+}
+
+.ad{ height: 40rpx; width: 100%; padding-top: 130rpx; margin-top: 40rpx;
+   background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-9.png) center top no-repeat;
+  background-size: 96rpx 99rpx; text-align: center; line-height: 1; font-size: 24rpx; color: #cccccc; padding-bottom: 140rpx;
+}
+
+.pay-bnt{ width: 750rpx; height: 96rpx; background: #ff7600; color: #fff; text-align: center; line-height: 96rpx; font-size: 36rpx; border-radius: 0; position: fixed; bottom: 0;}

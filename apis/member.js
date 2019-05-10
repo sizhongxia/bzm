@@ -30,5 +30,10 @@ module.exports = {
     return util.post('/wxmp/api/member/courseShareInfo', {
       orderId: orderId
     });
+  },
+  courseOrderShareInfo: (orderId) => {
+    return util.post('/wxmp/api/member/courseOrderShareInfo', {
+      orderId: orderId
+    });
   }
 }

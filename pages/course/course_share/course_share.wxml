@@ -1,2 +1,47 @@
-<!--pages/course/course_share/course_share.wxml-->
-<text>pages/course/course_share/course_share.wxml</text>
+<view style="height:40rpx;"></view>
+
+<view class='main-box'>
+  <view class='userinfo'>
+    <image src='{{headImgUrl}}' mode="scaleToFill" class='head-photo'></image>
+    <view class='title'>我正在白赚猫学习实战课程，挺不错的！</view>
+  </view>
+
+  <view class='banenr'>
+    <swiper indicator-dots="{{swiper.indicatorDots}}" autoplay="{{swiper.autoplay}}" interval="{{swiper.interval}}" duration="{{swiper.duration}}" current="{{swiper.current}}" class='index_banner'>
+      <block>
+        <swiper-item>
+          <image src="{{coverPicUrl}}" mode="widthFix" class="slide-image" style='width:100%;' />
+        </swiper-item>
+      </block>
+    </swiper>
+
+  </view>
+  <view class='ctitle'>他们都在这里学习</view>
+  <view class='userlist'>
+    <image wx:for="{{headPics}}" wx:key='userId' src='{{item.headImgUrl}}' mode="scaleToFill" class='photo' style='border-radius: 100%;'></image>
+    <image src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/head_14.png' mode="scaleToFill" class='photo'></image>
+    <view style="clear:both;height:0"></view>
+  </view>
+
+  <view class='qrcode-box'>
+    <image bindtap='previewImage' 
+      data-img-url="https://baizhuanmao.oss-cn-beijing.aliyuncs.com/bzm/banner/5cd5066160b2095763b6f1b9c7cffd" 
+      src="https://baizhuanmao.oss-cn-beijing.aliyuncs.com/bzm/banner/5cd5066160b2095763b6f1b9c7cffd"
+      mode="scaleToFill" class='qrcode'></image>
+    <view class='tag-box'>
+      <view class='tag-1'>名师亲授</view>
+      <view class='tag-2'>实战落地</view>
+      <view class='tag-3'>教练跟踪</view>
+      <view class='tag-4'>评估晋升</view>
+    </view>
+  </view>
+
+</view>
+
+<view class='ad'>
+  一个特别会赚钱的移动互联网应用
+</view>
+
+<navigator url='/pages/wx/auth/auth?courseId={{item.resId}}'>
+  <button class='pay-bnt'>立即加入</button>
+</navigator>
