@@ -33,7 +33,7 @@
     </view>
 
     <view class='qrcode-box'>
-       <image src="{{courseQrUrl || '/img/gh_6f60c068a4be_258.jpg'}}" mode="scaleToFill" class='qrcode'></image>
+       <image bindtap='previewImage' data-img-url="{{courseQrUrl || 'https://baizhuanmao.oss-cn-beijing.aliyuncs.com/bzm/banner/5cd5066160b2095763b6f1b9c7cffd'}}" src="{{courseQrUrl || 'https://baizhuanmao.oss-cn-beijing.aliyuncs.com/bzm/banner/5cd5066160b2095763b6f1b9c7cffd'}}" mode="scaleToFill" class='qrcode'></image>
        <view class='tag-box'>
         <view class='tag-1'>名师亲授</view>
         <view class='tag-2'>实战落地</view>
@@ -45,5 +45,5 @@
 </view>
 
 <view class='ad'>
-一个广告语是啥来着
+一个特别会赚钱的移动互联网应用
 </view>

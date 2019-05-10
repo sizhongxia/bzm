@@ -94,4 +94,9 @@ Page({
     });
   },
 
+  previewImage(e) {
+    wx.previewImage({
+      urls: [e.currentTarget.dataset.imgUrl]
+    })
+  }
 })
