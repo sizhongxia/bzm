@@ -1,10 +1,13 @@
 
-<view style='height:20rpx; background:#f4f4f4;'></view>
 <view class='ctitle-box'>
-  <view class='name'>教具说明</view>
+  <view class='name'>教具介绍</view>
 </view>
 
 <view class='article-box' style='margin-bottom: 100rpx;'>
   <view class='text' style='margin-bottom:30rpx;' wx:if="{{product.productContent}}">{{product.productContent}}</view>
   <image wx:for="{{product.pisLs}}" wx:key="resId" class='thumb' mode="widthFix" style='display:flex;' src='{{item.picUrl}}'></image>
 </view>
+
+<navigator hover-class="none" url='../tool_pay/tool_pay?productId={{productId}}'>
+<button class='pay-bnt'>立即购买</button>
+</navigator>

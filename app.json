@@ -17,6 +17,7 @@
     "pages/my/my_sell/my_sell",
     "pages/my/my_set/my_set",
     "pages/my/my_set_edit/my_set_edit",
+    "pages/my/my_origin_edit/my_origin_edit",
     "pages/my/my_qrcode/my_qrcode",
     "pages/wx/auth/auth",
     "pages/wx/webview/webview"

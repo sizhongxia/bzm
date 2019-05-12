@@ -10,7 +10,9 @@ Page({
     ruleUrl: '',
     orderModel: {
       userName: '',
-      phoneNo: ''
+      phoneNo: '',
+      originUserName: '',
+      originNickName: ''
     },
     paying: false
   },
@@ -55,6 +57,26 @@ Page({
         const orderModel = this.data.orderModel;
         orderModel.userName = res.userName;
         orderModel.phoneNo = res.phoneNo;
+        if (!res.haveOriginUser) {
+          wx.showModal({
+            title: '温馨提示',
+            content: '购买课程前请去关联您的推荐人',
+            confirmText: '去关联',
+            confirmColor: '#e95410',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/my/my_origin_edit/my_origin_edit'
+                })
+              } else {
+                wx.navigateBack();
+              }
+            }
+          });
+        } else {
+          orderModel.originUserName = res.originUserName;
+          orderModel.originNickName = res.originNickName;
+        }
         this.setData({
           orderModel: orderModel
         });

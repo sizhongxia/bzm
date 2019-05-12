@@ -9,8 +9,9 @@
 
   <view class='client-box'>
     <view class='client-title'>客户信息</view>
-    <view class='client-name'>姓名：{{orderModel.userName}}</view>
+    <view class='client-name'>姓　名：{{orderModel.userName}}</view>
     <view class='client-name'>手机号：{{orderModel.phoneNo}}</view>
+    <view class='client-name' wx:if="{{orderModel.originUserName || orderModel.originNickName}}">推荐人：{{orderModel.originUserName || orderModel.originNickName}}</view>
   </view>
 
   <view class='explain'>

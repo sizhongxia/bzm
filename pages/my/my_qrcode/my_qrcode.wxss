@@ -51,3 +51,5 @@ page{ background: #f4f4f4;}
    background: url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-9.png) center top no-repeat;
   background-size: 96rpx 99rpx; text-align: center; line-height: 1; font-size: 24rpx; color: #cccccc; padding-bottom: 20rpx;
 }
+
+.pay-bnt{ width: 750rpx; height: 96rpx; background: #ff7600; color: #fff; text-align: center; line-height: 96rpx; font-size: 36rpx; border-radius: 0; position: fixed; bottom: 0;}

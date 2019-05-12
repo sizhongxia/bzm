@@ -1,12 +1,14 @@
 <view class='userinfo'>
   <navigator hover-class="none" url='../my_set_edit/my_set_edit'>
     <image class='head-photo' src='{{member.headImgUrl}}' mode="scaleToFill"></image>
-    <view class='name'>{{member.userName}}</view>
+    <view class='name'>{{member.userName}} ({{member.userNo}})</view>
   </navigator>
   <view class='tag'>
-    <image wx:if='{{member.authenticationFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-1.png' mode="scaleToFill"></image>
-    <image wx:if='{{member.memberFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-2.png' mode="scaleToFill"></image>
-    <image wx:if='{{member.fivesFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-3.png' mode="scaleToFill"></image>
+    <image wx:if='{{member.authenticationFlag}}' src='/img/my-1.png' mode="scaleToFill"></image>
+    <image wx:else' src='/img/my-1-n.png' mode="scaleToFill"></image>
+    <image wx:if='{{member.memberFlag}}' src='/img/my-2.png' mode="scaleToFill"></image>
+    <image wx:else' src='/img/my-2-n.png' mode="scaleToFill"></image>
+    <!-- <image wx:if='{{member.fivesFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-3.png' mode="scaleToFill"></image> -->
   </view>
   <view class='nav-box'>
       <navigator hover-class="none" wx:if='{{member.memberFlag}}' class='n1' url='../my_sell/my_sell'>分销中心

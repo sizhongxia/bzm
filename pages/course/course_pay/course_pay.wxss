@@ -8,11 +8,17 @@ page{ background: #f2f2f2; padding-top: 16rpx;}
 }
 
 .info-box .name{ color: #191919; font-weight: bold; font-size: 30rpx;
-  position: absolute; left: 282rpx; height: 30rpx;
+  position: absolute; left: 282rpx; height: 36rpx;width: 400rpx;
+white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
 } 
 
-.info-box .desc{ color: #9e9e9e; font-weight: bold; font-size: 30rpx;
-  position: absolute; left: 282rpx; top: 80rpx;
+.info-box .desc{ color: #9e9e9e; font-size: 30rpx;
+  position: absolute; left: 282rpx; top: 80rpx; width: 400rpx;
+white-space:nowrap;
+ overflow:hidden;
+ text-overflow:ellipsis;
 } 
 
 .info-box .price{

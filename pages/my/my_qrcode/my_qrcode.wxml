@@ -1,3 +1,4 @@
+
 <view style="height:40rpx;"></view>
 
 <view class='main-box'>
@@ -17,7 +18,7 @@
 >
   <block wx:for="{{orders}}" wx:key="orderId">
     <swiper-item >
-      <image src="{{item.coverPicUrl}}" mode="widthFix" class="slide-image" style='width:100%;'/>
+      <image bindtap='previewImage' data-img-url="{{item.coverPicUrl}}" src="{{item.coverPicUrl}}" mode="widthFix" class="slide-image" style='width:100%;'/>
     </swiper-item>
   </block>
 </swiper>
@@ -44,6 +45,10 @@
 
 </view>
 
-<view class='ad'>
+<view class='ad' style="margin-bottom: 120rpx">
 一个特别会赚钱的移动互联网应用
 </view>
+
+<button bindtap='toShare' disabled='{{doing}}' loading='{{doing}}' class='pay-bnt'>{{doing?doing:'分享当前课程'}}</button>
+
+<canvas canvas-id='share' style='width: 693px;height: 1196px;top: -9999px;position: absolute;'  hidden='{{!canvasHidden}}'></canvas>

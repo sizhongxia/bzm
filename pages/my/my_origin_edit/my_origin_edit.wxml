@@ -1,0 +1,8 @@
+
+<view class='form-box'>
+  <view class='item-box'>
+    <label>用户编号：</label>
+    <input type='number' maxlength='9' class='text' value='{{member.userNo}}' bindinput='inputUserNo'></input>
+  </view>
+</view>
+<button bindtap='toSubmitForm' class='pay-bnt'>提交</button>

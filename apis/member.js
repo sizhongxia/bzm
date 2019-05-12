@@ -11,6 +11,9 @@ module.exports = {
   updateAuthenticationInfo: (data) => {
     return util.post('/wxmp/api/member/updateAuthenticationInfo', data);
   },
+  updateUserOriginInfo: (data) => {
+    return util.post('/wxmp/api/member/updateUserOriginInfo', data);
+  },
   myExpandMembers: (page, size) => {
     return util.post('/wxmp/api/member/myExpandMembers', {
       page: page,

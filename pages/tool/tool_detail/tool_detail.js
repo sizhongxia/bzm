@@ -3,7 +3,8 @@ const productSer = require('../../../apis/product.js');
 const app = getApp();
 Page({
   data: {
-    product: {}
+    product: {},
+    productId: ''
   },
 
   onLoad: function (options) {
@@ -17,7 +18,8 @@ Page({
     });
     productSer.productDetail(options.productId).then(product => {
       this.setData({
-        product: product
+        product: product,
+        productId: options.productId
       });
       wx.hideLoading();
     }).catch(err => {

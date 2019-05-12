@@ -1,5 +1,6 @@
 const util = require('../../../utils/util.js');
 const authSer = require('../../../apis/auth.js');
+const memberSer = require('../../../apis/member.js');
 const bannerSer = require('../../../apis/banner.js');
 const courseSer = require('../../../apis/course.js');
 
@@ -10,6 +11,7 @@ Page({
   data: {
     banners: [],
     courses: [],
+    member: {},
     currentPage: 1,
     indicatorDots: true,
     autoplay: true,
@@ -24,18 +26,18 @@ Page({
       mask: true
     });
     // 扫码进入，获取参数
-    var uscene = '';
-    if (!!options.scene) {
-      try {
-        wx.setStorageSync('uscene', uscene)
-      } catch (e) {
-        wx.hideLoading();
-        wx.redirectTo({
-          url: '/pages/wx/auth/auth'
-        });
-        return;
-      }
-    }
+    // var uscene = '';
+    // if (!!options.scene) {
+    //   try {
+    //     wx.setStorageSync('uscene', uscene)
+    //   } catch (e) {
+    //     wx.hideLoading();
+    //     wx.redirectTo({
+    //       url: '/pages/wx/auth/auth'
+    //     });
+    //     return;
+    //   }
+    // }
     // 设置标题
     wx.setNavigationBarTitle({
       title: '课程'
@@ -47,15 +49,15 @@ Page({
       })
     }).then(token => {
       wx.setStorageSync('token', token);
+      return memberSer.userInfo();
+    }).then(member => {
+      this.setData({
+        member: member
+      });
       wx.hideLoading();
       this.loadIndexData();
     }).catch(err => {
-      // wx.redirectTo({
-      //   url: '/pages/wx/auth/auth',
-      //   success() {
-      //     wx.hideLoading();
-      //   }
-      // });
+      console.info(err);
       this.setData({
         isFirst: true
       });
@@ -170,5 +172,13 @@ Page({
       wx.stopPullDownRefresh();
       wx.hideNavigationBarLoading();
     });
+  },
+
+  onShareAppMessage() {
+    return {
+      title: '我正在白赚猫学习实战课程，挺不错的！',
+      path: '/pages/course/course_index/course_index',
+      success: function (res) { }
+    }
   }
 })
