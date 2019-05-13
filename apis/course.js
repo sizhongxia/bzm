@@ -18,9 +18,10 @@ module.exports = {
       resId: resId
     });
   },
-  placeOrder: (courseId) => {
+  placeOrder: (courseId, originUserNo) => {
     return util.post('/wxmp/api/course/placeOrder', {
-      courseId: courseId
+      courseId: courseId,
+      originUserNo: originUserNo
     });
   }
 }

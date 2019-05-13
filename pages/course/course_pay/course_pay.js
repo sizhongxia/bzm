@@ -11,8 +11,10 @@ Page({
     orderModel: {
       userName: '',
       phoneNo: '',
+      originUserNo: '',
       originUserName: '',
-      originNickName: ''
+      originNickName: '',
+      haveOriginUser: false
     },
     paying: false
   },
@@ -57,26 +59,29 @@ Page({
         const orderModel = this.data.orderModel;
         orderModel.userName = res.userName;
         orderModel.phoneNo = res.phoneNo;
-        if (!res.haveOriginUser) {
-          wx.showModal({
-            title: '温馨提示',
-            content: '购买课程前请去关联您的推荐人',
-            confirmText: '去关联',
-            confirmColor: '#e95410',
-            success(res) {
-              if (res.confirm) {
-                wx.navigateTo({
-                  url: '/pages/my/my_origin_edit/my_origin_edit'
-                })
-              } else {
-                wx.navigateBack();
-              }
-            }
-          });
-        } else {
-          orderModel.originUserName = res.originUserName;
-          orderModel.originNickName = res.originNickName;
-        }
+        // if (!res.haveOriginUser) {
+        //   wx.showModal({
+        //     title: '温馨提示',
+        //     content: '购买课程前请去关联您的推荐人',
+        //     confirmText: '去关联',
+        //     confirmColor: '#e95410',
+        //     success(res) {
+        //       if (res.confirm) {
+        //         wx.navigateTo({
+        //           url: '/pages/my/my_origin_edit/my_origin_edit'
+        //         })
+        //       } else {
+        //         wx.navigateBack();
+        //       }
+        //     }
+        //   });
+        // } else {
+          
+        // }
+        orderModel.haveOriginUser = res.haveOriginUser;
+        orderModel.originUserNo = res.originUserNo;
+        orderModel.originUserName = res.originUserName;
+        orderModel.originNickName = res.originNickName;
         this.setData({
           orderModel: orderModel
         });
@@ -84,6 +89,14 @@ Page({
       this.loadCourseDetail();
     }).catch(err => {
       wx.hideLoading();
+    });
+  },
+
+  inputOriginUserNo(e) {
+    const orderModel = this.data.orderModel;
+    orderModel.originUserNo = e.detail.value;
+    this.setData({
+      orderModel: orderModel
     });
   },
 
@@ -104,6 +117,14 @@ Page({
 
   toBuy() {
     const _this = this;
+    const originUserNo = _this.data.orderModel.originUserNo;
+    if (!originUserNo) {
+      wx.showToast({
+        title: '请输入您的推荐人ID',
+        icon: 'none'
+      });
+      return;
+    }
     wx.showModal({
       title: '温馨提示',
       content: '是否要创建订单并支付？',
@@ -118,7 +139,7 @@ Page({
             title: '正在创建订单',
             mask: true
           });
-          courseSer.placeOrder(courseId).then(res => {
+          courseSer.placeOrder(courseId, originUserNo).then(res => {
             wx.showLoading({
               title: '等待支付',
               mask: true
@@ -182,7 +203,16 @@ Page({
               }
             })
           }).catch(err => {
+            _this.setData({
+              paying: false
+            });
             wx.hideLoading();
+            if (err && err.message) {
+              wx.showToast({
+                title: err.message,
+                icon: 'none'
+              });
+            }
           });
         }
       }

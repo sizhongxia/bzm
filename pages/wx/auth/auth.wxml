@@ -1,14 +1,14 @@
 <view class='main-box' wx:if="{{forbiddenLocation}}">
   <image style='width: 200rpx;height: 230rpx;margin-top: 240rpx;' src='/img/location_err.png'></image>
   <view style='padding: 40rpx 80rpx;'>
-    <text style="font-size: 32rpx;font-weight: 100;">您当前尚未开通定位权限，部分功能不能使用</text>
+    <text style="font-size: 32rpx;font-weight: 100;color: 848484;font-weight: 100;">您当前尚未开通定位权限，部分功能不能使用</text>
   </view>
   <button class='toSettingBtn' open-type="openSetting" bindopensetting="onGotUserLocation">去设置</button>
 </view>
 <view class='main-box' wx:if="{{goGotUserInfo}}">
   <image  style='width: 200rpx;height: 230rpx;margin-top: 240rpx;' src='/img/bzm.png'></image>
   <view style='padding: 40rpx 80rpx;'>
-    <text style="font-size: 32rpx;font-weight: 100;">点击微信登录然后请允许微信授权信息</text>
+    <text style="font-size: 32rpx;font-weight: 100;color: 848484;font-weight: 100;">点击微信登录(可能需要您的授权，请允许微信授权信息)</text>
   </view>
   <button class="toSettingBtn" open-type="getUserInfo" lang="zh_CN" bindgetuserinfo="onGotUserInfo">微信登录</button>
 </view>

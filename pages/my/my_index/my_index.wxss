@@ -13,13 +13,16 @@ page{
 .userinfo .name{ line-height: 1; text-align: center; font-size: 34rpx; color: #f4f4f4;
   position: absolute; top: 236rpx; width: 750rpx;
 }
-.userinfo .tag{ height: 40rpx; width: 750rpx; position: absolute; top: 303rpx; text-align: center;}
+.userinfo .no{ line-height: 1; text-align: center; font-size: 34rpx; color: #f4f4f4;
+  position: absolute; top: 292rpx; width: 750rpx;
+}
+.userinfo .tag{ height: 40rpx; width: 750rpx; position: absolute; top: 346rpx; text-align: center;}
 .userinfo .tag image{ display: inline-block; width: 113rpx; height: 40rpx; margin: 0 10rpx;}
 
 .nav-box{ width: 690rpx; height: 454rpx; background:url(https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-11.png) no-repeat;
 background-size:690rpx 454rpx; 
  position: absolute;
-  top: 399rpx;left: 50%; margin-left: -345rpx;
+  top: 412rpx;left: 50%; margin-left: -345rpx;
   border-top-left-radius: 10rpx;  border-top-right-radius: 10rpx;
 }
 

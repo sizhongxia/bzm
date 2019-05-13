@@ -13,6 +13,12 @@
     <view class='client-name'>手机号：{{orderModel.phoneNo}}</view>
     <view class='client-name' wx:if="{{orderModel.originUserName || orderModel.originNickName}}">推荐人：{{orderModel.originUserName || orderModel.originNickName}}</view>
   </view>
+  <view class='client-box'>
+    <view class='client-name'>推荐人ID：<input disabled='{{orderModel.haveOriginUser}}' value="{{orderModel.originUserNo}}" bindinput='inputOriginUserNo' type='number' style='display:inline-block;overflow:visible;border: 1rpx solid #efefef;width: 365rpx;padding-left:16rpx;'></input></view>
+  <view class='explain' wx:if='{{!orderModel.haveOriginUser}}'>
+    <view>注：推荐人绑定成功后无法变更。</view>
+  </view>
+  </view>
 
   <view class='explain'>
     <view>购买成功后您可以成为会员，您将拥有如下权益：</view>

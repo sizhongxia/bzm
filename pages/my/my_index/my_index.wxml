@@ -1,7 +1,8 @@
 <view class='userinfo'>
   <navigator hover-class="none" url='../my_set_edit/my_set_edit'>
     <image class='head-photo' src='{{member.headImgUrl}}' mode="scaleToFill"></image>
-    <view class='name'>{{member.userName}} ({{member.userNo}})</view>
+    <view class='name'>{{member.userName}}</view>
+    <view class='no'>ID - {{member.userNo}}</view>
   </navigator>
   <view class='tag'>
     <image wx:if='{{member.authenticationFlag}}' src='/img/my-1.png' mode="scaleToFill"></image>
