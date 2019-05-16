@@ -12,8 +12,8 @@
     <view class='phone' bindtap='makePhoneCall' data-phone="{{fives.customerServiceTel}}">电话</view>
   </view>
 </view>
-<view class='article-box'>
-<view class='text' style='margin-bottom:30rpx;'>{{fives.fivesLeadSynopsis}}</view>
+<view class='article-box' style="margin-top:-30rpx;">
+  <view class='text' style='margin-bottom:30rpx;'>{{fives.fivesLeadSynopsis}}</view>
   <!-- <image class='thumb' mode="widthFix" src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/5s-10.png'></image> -->
   <map
     id="fivesmap"

@@ -26,12 +26,12 @@
   <view style="clear:both;height:0"></view>
 </view>
 
-<view style='height:20rpx; background:#f4f4f4;'></view>
-<view class='ctitle-box'>
+<view wx:if="{{course.courseContent}}" style='height:20rpx; background:#f4f4f4;'></view>
+<view class='ctitle-box' wx:if="{{course.courseContent}}">
   <view class='name'>课程说明</view>
 </view>
 
-<view class='article-box' style='margin-bottom: {{course.learning?0:100}}rpx;'>
+<view class='article-box' style='padding-top:0;margin-bottom: {{course.learning?0:100}}rpx;'>
   <view class='text' style='margin-bottom:30rpx;' wx:if="{{course.courseContent}}">{{course.courseContent}} </view>
   <image wx:for="{{course.pisLs}}" wx:key="resId" class='thumb' mode="widthFix" style='display:flex;' src='{{item.picUrl}}'></image>
 </view>
