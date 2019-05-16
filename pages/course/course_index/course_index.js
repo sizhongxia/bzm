@@ -26,18 +26,19 @@ Page({
       mask: true
     });
     // 扫码进入，获取参数
-    // var uscene = '';
-    // if (!!options.scene) {
-    //   try {
-    //     wx.setStorageSync('uscene', uscene)
-    //   } catch (e) {
-    //     wx.hideLoading();
-    //     wx.redirectTo({
-    //       url: '/pages/wx/auth/auth'
-    //     });
-    //     return;
-    //   }
-    // }
+    if (!!options.uscene) {
+      try {
+        wx.setStorageSync('uscene', options.uscene);
+      } catch (e) {
+        wx.hideLoading();
+        wx.redirectTo({
+          url: '/pages/wx/auth/auth'
+        });
+        return;
+      }
+    } else {
+      options.uscene = '';
+    }
     // 设置标题
     wx.setNavigationBarTitle({
       title: '课程'
@@ -45,7 +46,8 @@ Page({
     wx.showTabBar({});
     util.login().then(code => {
       return authSer.login({
-        code: code
+        code: code,
+        uscene: options.uscene
       })
     }).then(token => {
       wx.setStorageSync('token', token);
@@ -57,7 +59,6 @@ Page({
       wx.hideLoading();
       this.loadIndexData();
     }).catch(err => {
-      console.info(err);
       this.setData({
         isFirst: true
       });
@@ -177,7 +178,7 @@ Page({
   onShareAppMessage() {
     return {
       title: '我正在白赚猫学习实战课程，挺不错的！',
-      path: '/pages/course/course_index/course_index',
+      path: '/pages/course/course_index/course_index?uscene=' + this.data.member.userId,
       success: function (res) { }
     }
   }

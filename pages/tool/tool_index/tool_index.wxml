@@ -10,6 +10,7 @@
     </navigator>
     <navigator url='../tool_pay/tool_pay?productId={{item.resId}}' class='buy'>立即购买</navigator>
   </view>
+  <view wx:if="{{products.length === 0}}" style='text-align:center;line-height: 102rpx;font-size: 24rpx;'>暂无教具</view>
 
 </view>
 

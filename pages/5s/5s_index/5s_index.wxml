@@ -28,6 +28,6 @@
     <view class='phone' catchtap='makePhoneCall' data-phone='{{item.customerServiceTel}}'>电话</view>
     <view class='map' catchtap='openLocation' data-name='{{item.fivesName}}' data-address='{{item.addrDetail}}' data-lng='{{item.addrLng}}' data-lat='{{item.addrLat}}'>导航</view>
   </navigator>
-  <view wx:if="{{!firstLoad && fives.length === 0}}">未查询到5S店信息</view>
+  <view wx:if="{{!firstLoad && fives.length === 0}}" style='text-align:center;line-height: 102rpx;font-size: 24rpx;'>未查询到5S店信息</view>
 </view>
 
