@@ -12,7 +12,7 @@
     <!-- <image wx:if='{{member.fivesFlag}}' src='https://bzm.oss-cn-beijing.aliyuncs.com/baizhuanmao/my-3.png' mode="scaleToFill"></image> -->
   </view>
   <view class='nav-box'>
-      <navigator hover-class="none" wx:if='{{member.memberFlag}}' class='n1' url='../my_sell/my_sell'>分销中心
+      <navigator hover-class="none" wx:if='{{member.memberFlag}}' class='n1' url='../my_sell/my_sell'>我的伙伴
         <view class='to'></view>
       </navigator>
       <navigator hover-class="none" class='n2' url='../my_order/my_order'>我的订单<view class='to'></view></navigator>

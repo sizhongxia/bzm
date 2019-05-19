@@ -22,12 +22,11 @@
 <view class='list-box'>
   <navigator wx:for="{{fives}}" hover-class="none" wx:key="resId" url='../5s_detail/5s_detail?fivesId={{item.resId}}' class='item-box'>
     <image class='thumb'  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
-    <view class='name'>{{item.fivesName}}</view>
-    <view class='address'>{{item.addrDetail}}</view>
+    <view class='name' style='white-space:nowrap;overflow:hidden;text-overflow:ellipsis;width:408rpx'>{{item.fivesName}}</view>
+    <view class='address' style='width:390rpx;'>{{item.addrDetail}}</view>
     <view class='juli'>{{item.distance}}</view>
     <view class='phone' catchtap='makePhoneCall' data-phone='{{item.customerServiceTel}}'>电话</view>
     <view class='map' catchtap='openLocation' data-name='{{item.fivesName}}' data-address='{{item.addrDetail}}' data-lng='{{item.addrLng}}' data-lat='{{item.addrLat}}'>导航</view>
   </navigator>
   <view wx:if="{{!firstLoad && fives.length === 0}}" style='text-align:center;line-height: 102rpx;font-size: 24rpx;'>未查询到5S店信息</view>
 </view>
-

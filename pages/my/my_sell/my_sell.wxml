@@ -1,7 +1,7 @@
 <view style="height:16rpx;"></view>
 
 <view class='top-box'>
-  <view class='title'>累计招募{{level1Num}}名一级伙伴，其共招募了{{level2Num}}名伙伴</view>
+  <view class='title'>累计招募{{level1Num}}名一级伙伴，另共招募了{{level2Num}}名二级伙伴</view>
   <navigator url='../../wx/webview/webview?url={{ruleUrl}}'>
     <view class='oprate oprate-1'>查看<text>奖励规则</text></view>
   </navigator>
@@ -13,6 +13,6 @@
     <image src='{{item.headImgUrl}}'  mode="scaleToFill"  class='head-photo'></image>
     <view class='name'>{{item.nickName}}</view>
     <view class='time'>于{{item.memberAt}}创建</view>
-    <view class='num'>发展{{item.level1Num}}名伙伴</view>
+    <view class='num'>招募{{item.level1Num}}名伙伴</view>
   </view>
 </view>

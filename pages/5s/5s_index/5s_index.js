@@ -61,6 +61,7 @@ Page({
           firstLoad: false,
           currentPage: 2
         });
+        loadFivesOver = false;
       } else {
         _this.setData({
           fives: [],
@@ -105,22 +106,19 @@ Page({
     wx.getLocation({
       type: 'gcj02',
       success(res) {
-        const latitude = res.latitude;
-        const longitude = res.longitude;
-        _this.loadMoreFives();
-      },
-      fail() {
-        _this.loadMoreFives();
+        app.globalData.u_latitude = res.latitude;
+        app.globalData.u_longitude = res.longitude;
       }
     });
+    _this.loadMoreFives();
   },
 
-  loadMoreFives(longitude, latitude) {
+  loadMoreFives() {
     const _this = this;
     // 加载更多5S店
     fivesSer.fivesList({
-      lng: longitude,
-      lat: latitude,
+      lng: app.globalData.u_longitude,
+      lat: app.globalData.u_latitude,
       name: searchName,
       page: _this.data.currentPage,
       size: 10
