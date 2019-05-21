@@ -6,3 +6,4 @@
 .article-box .text{ font-size: 30rpx; color: #333333; line-height: 1.5; }
 
 .article-box .thumb{ width: 100%;}
+.pay-bnt{ width: 750rpx; height: 96rpx; background: #ff7600; color: #fff; text-align: center; line-height: 96rpx; font-size: 36rpx; border-radius: 0; position: fixed; bottom: 0;}
