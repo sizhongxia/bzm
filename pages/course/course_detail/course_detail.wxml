@@ -4,5 +4,5 @@
 </view>
 
 <navigator url='../course_classify_detail/course_classify_detail?courseId={{course.classifyId}}' hover-class="none">
-<button class='pay-bnt'>专题详情</button>
+<button class='pay-bnt'>查看全部课程</button>
 </navigator>
