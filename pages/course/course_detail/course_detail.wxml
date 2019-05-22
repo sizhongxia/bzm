@@ -3,6 +3,6 @@
   <image wx:for="{{course.pisLs}}" wx:key="resId" class='thumb' mode="widthFix" style='display:flex;' src='{{item.picUrl}}'></image>
 </view>
 
-<navigator url='../course_classify_detail/course_classify_detail?courseId={{course.classifyId}}' hover-class="none">
+<navigator open-type='redirect' url='../course_classify_detail/course_classify_detail?courseId={{course.classifyId}}' hover-class="none">
 <button class='pay-bnt'>查看全部课程</button>
 </navigator>

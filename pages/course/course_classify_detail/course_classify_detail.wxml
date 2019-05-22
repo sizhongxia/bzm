@@ -19,7 +19,7 @@
   <view class='desc'>({{course.courseLs.length}})</view>
 </view>
 <view class='course-box'>
-  <navigator hover-class="none" url='../course_detail/course_detail?courseId={{item.resId}}' wx:for="{{course.courseLs}}" wx:key="resId">
+  <navigator hover-class="none" open-type='redirect' url='../course_detail/course_detail?courseId={{item.resId}}' wx:for="{{course.courseLs}}" wx:key="resId">
     <image  mode="scaleToFill" src='{{item.coverPicUrl}}'></image>
     <view class='title'>{{item.itemName}}</view>
   </navigator>
