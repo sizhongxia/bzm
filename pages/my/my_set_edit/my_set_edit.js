@@ -4,8 +4,12 @@ Page({
   data: {
     member: {
       realName: '',
+      phoneNo: '',
+      provinceName: '',
+      cityName: '',
       phoneNo: ''
-    }
+    },
+    region: []
   },
   onLoad: function (options) {
     wx.setNavigationBarTitle({
@@ -21,8 +25,16 @@ Page({
         const member = this.data.member;
         member.realName = res.userName;
         member.phoneNo = res.phoneNo;
+        member.provinceName = res.provinceName;
+        member.cityName = res.cityName;
+        member.countyName = res.countyName;
+        var region = this.data.region;
+        if (member.provinceName && member.cityName && member.countyName) {
+          region = [member.provinceName, member.cityName, member.countyName]
+        }
         this.setData({
-          member: member
+          member: member,
+          region: region
         });
       }
     }).catch(err => {
@@ -46,12 +58,29 @@ Page({
     });
   },
 
+  bindRegionChange(e) {
+    this.setData({
+      region: e.detail.value
+    })
+  },
+
   toSubmitForm() {
     wx.showLoading({
       title: '请稍后...',
       mask: true
     });
-    memberSer.updateAuthenticationInfo(this.data.member).then(res => {
+    var member = this.data.member;
+    member.provinceName = this.data.region[0]
+    member.cityName = this.data.region[1]
+    member.countyName = this.data.region[2]
+    if (!member.countyName) {
+      wx.showToast({
+        title: '请选择一个区域',
+        icon: 'none'
+      });
+      return;
+    }
+    memberSer.updateAuthenticationInfo(member).then(res => {
       wx.hideLoading();
       wx.showToast({
         title: '更新成功'

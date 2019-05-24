@@ -95,6 +95,25 @@ Page({
       } else {
         loadCoursesOver = true;
       }
+      return memberSer.getAuthenticationInfo()
+    }).then(res => {
+      if (res.isMember) {
+        if (!res.provinceName || !res.cityName || !res.countyName) {
+          wx.showModal({
+            title: '提示',
+            content: '请完善您的个人所在区域信息',
+            showCancel: false,
+            confirmColor: '#e95410',
+            success(res) {
+              if (res.confirm) {
+                wx.navigateTo({
+                  url: '/pages/my/my_set_edit/my_set_edit'
+                })
+              }
+            }
+          })
+        }
+      }
       wx.hideLoading();
       typeof cb === "function" && cb();
     }).catch(err => {
