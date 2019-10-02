@@ -4,17 +4,24 @@
 		"ignore": []
 	},
 	"setting": {
-		"urlCheck": true,
+		"urlCheck": false,
 		"es6": true,
 		"postcss": true,
 		"minified": true,
 		"newFeature": true,
 		"autoAudits": false,
-		"checkInvalidKey": true
+		"checkInvalidKey": true,
+		"checkSiteMap": true,
+		"uploadWithSourceMap": true,
+		"babelSetting": {
+			"ignore": [],
+			"disablePlugins": [],
+			"outputPath": ""
+		}
 	},
 	"compileType": "miniprogram",
-	"libVersion": "1.9.9",
-	"appid": "wxa406874170395ba5",
+	"libVersion": "2.2.0",
+	"appid": "wxa478fafb3eb1ac95",
 	"projectname": "bzm",
 	"debugOptions": {
 		"hidedInDevtools": []
